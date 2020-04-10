@@ -7,11 +7,9 @@ As the COVID-19 has seriously damaged human’s lives and the economy. Lots of f
 
 #### MVP
 
-The basic requirements should have two collections, 
+The basic requirements should have one collection,
 
-Users collection include : userID, user name, telephone number, email address, user address, user postcode, age, living alone.
-
-Needs collection include: reqID, userID, need content, need category.
+Needs collection include: NeedID, contact person name, contact number, contact email address, address, postcode, need content, need category.
 
 - App will be able to show a list of needs from the people in isolation.
 - App will be able to edit a specific need
