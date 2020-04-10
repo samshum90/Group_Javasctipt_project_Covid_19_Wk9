@@ -11,21 +11,21 @@ The basic requirements should have two collections,
 Users collection include : userID, user name, telephone number, email address, user address, user postcode, age, living alone. 
 Needs collection include: reqID, userID, need content,need category.
 
-App will be able to show a list of needs from the people in isolation.
-App will be able to edit a specific need
-App will be able to add a need.
-App will be able to delete a specific need
-App will be able to add a user 
-App will be able to edit a specific user
-App be able to delete a user
+- App will be able to show a list of needs from the people in isolation.
+- App will be able to edit a specific need
+- App will be able to add a need.
+- App will be able to delete a specific need
+- App will be able to add a user 
+- App will be able to edit a specific user
+- App be able to delete a user
 
 #### Extensions
 
-App will be able to show the priority of a need (we use points to a need, for example, people who are older than 75 can gain 5 points, people who live alone can gain 5 points, need to buy some food or medicine can gain 5 points, people who need an emergency services etc.) 
-Map to locate the needs
+- App will be able to show the priority of a need (we use points to a need, for example, people who are older than 75 can gain 5 points, people who live alone can gain 5 points, need to buy some food or medicine can gain 5 points, people who need an emergency services etc.) 
+- Map to locate the needs
 
 #### Possible Extensions
-Map to show the nearest users
-Chatbox for the user to communicate
-Be able to give direction to nearby facilities
-App will be able to add, edit, delete a volunteer
+- Map to show the nearest users
+- Chatbox for the user to communicate
+- Be able to give direction to nearby facilities
+- App will be able to add, edit, delete a volunteer
