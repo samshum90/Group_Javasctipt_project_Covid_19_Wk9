@@ -1,4 +1,4 @@
-### Help-Fight COVID-19
+# Help-Fight COVID-19
 
 This is a project to let people help each other and fight to COVID-19
 #### Background Information
