@@ -24,7 +24,53 @@ export default {
 
     },
     mounted(){
-        
+        this.needs = [
+            {
+                "name": "John",
+                "content": "Bread, Eggs, Milk, Yogurt",
+                "needDescription": "Gluten free yogurt",
+                "needStatus": true,
+                "category": "Groceries",
+                "contactDetails": {
+                    "contactNumber": "07711666577",
+                    "email": "johnboy@hotmail.com",
+                    "address": "4/7 Corstorphine High Street",
+                    "postCode": "E12 7TQ",
+                    "time": "17:00",
+                    "date": "06/6/2020"
+                }
+            },
+            {
+                "name": "Alex",
+                "content": "Bread, Eggs, Milk, Yogurt",
+                "needDescription": "Gluten free yogurt",
+                "needStatus": true,
+                "category": "Groceries",
+                "contactDetails": {
+                    "contactNumber": "07711666577",
+                    "email": "johnboy@hotmail.com",
+                    "address": "4/7 Corstorphine High Street",
+                    "postCode": "E12 7TQ",
+                    "time": "17:00",
+                    "date": "06/6/2020"
+                }
+            },
+            {
+                "name": "Jun",
+                "content": "Bread, Eggs, Milk, Yogurt",
+                "needDescription": "Gluten free yogurt",
+                "needStatus": true,
+                "category": "Groceries",
+                "contactDetails": {
+                    "contactNumber": "07711666577",
+                    "email": "johnboy@hotmail.com",
+                    "address": "4/7 Corstorphine High Street",
+                    "postCode": "E12 7TQ",
+                    "time": "17:00",
+                    "date": "06/6/2020"
+                }
+            }
+        ]
     }
 }
 </script>
