@@ -8,8 +8,9 @@
 </template>
 
 <script>
-import { eventBus } from '@/main.js'
-import NeedItem from './NeedItem.vue'
+import { eventBus } from '@/main.js';
+import NeedItem from './NeedItem.vue';
+import NeedService from '@/services/NeedService.js';
 
 export default {
     name: "needs-list",
@@ -21,6 +22,12 @@ export default {
       eventBus.$on('delete-a-need', (id) => {
         let index = this.needs.findIndex(need => need._id === id);
         this.needs.splice(index,1);
+      })
+      eventBus.$on('update-a-need', needToUpdate => {
+        const updateNeed = {...needToUpdate};
+        NeedService.updateNeed(updateNeed);
+        const index = this.needs.findIndex(need => need._id === needToUpdate._id);
+        this.needs.splice(index, 1, updateNeed);
       })
     }
 }
