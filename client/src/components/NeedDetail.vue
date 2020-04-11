@@ -1,0 +1,74 @@
+<template>
+  <div>
+      <h2>I am the detail of a need:</h2>
+      <div v-if="need!=null">
+            <form v-on:submit="updateNeed">
+              <label for="name">Name:</label>
+              <input type="text" id="name" v-model="need.name"><br/>
+              <label for="content">Content:</label>
+              <input type="text" id="content" v-model="need.content"><br/>
+              <label for="description">Description:</label>
+              <input type="text" id="description" v-model="need.needDescription"><br/>
+              <label for="category">Category:</label>
+              <input type="text" id="category" v-model="need.category"><br/>
+              <label for="number">Contact Number:</label>
+              <input type="text" id="number" v-model="need.contactDetails.contactNumber"><br/>
+              <label for="email">Email:</label>
+              <input type="text" id="email" v-model="need.contactDetails.email"><br/>
+              <label for="address">Address:</label>
+              <input type="text" id="address" v-model="need.contactDetails.address"><br/>
+              <label for="postcode">Postcode:</label>
+              <input type="text" id="postcode" v-model="need.contactDetails.postCode"><br/>
+              <label for="time">Post Time:</label>
+              <input type="text" id="time" v-model="need.contactDetails.time"><br/>
+              <label for="date">Post Date:</label>
+              <input type="text" id="date" v-model="need.contactDetails.date"><br/>
+              <input type="submit" value="Update" id="update"/>
+              
+          </form>
+          <button v-on:click="deleteNeed">Delete</button>
+      
+      </div>
+  </div>
+</template>
+
+<script>
+import { eventBus } from '@/main.js';
+export default {
+    name: "need-detail",
+    data(){
+        return {
+            need: null
+        }
+    },
+    mounted(){
+        eventBus.$on('select-a-need', selectedNeed => this.need = selectedNeed);
+    },
+    methods:{
+        updateNeed(event){
+            event.preventDefault();
+            // const need = {
+            //     "name": "this.need.name",
+            //     "email": "this.need.contactDetails.email"
+            // };
+            eventBus.$emit('update-a-need', this.need);
+        
+            // BookingService.updateBooking(booking);
+            // .then(booking => {
+            //     eventBus.$emit('booking-added', booking);
+            // });
+        },
+
+        deleteNeed(){
+            eventBus.$emit('delete-a-need', this.need._id );
+            this.need = null;
+        }
+
+    }
+
+}
+</script>
+
+<style>
+
+</style>

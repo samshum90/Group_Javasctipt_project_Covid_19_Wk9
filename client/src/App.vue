@@ -1,8 +1,10 @@
 <template>
   <div>
+    <need-list :needs="needs"></need-list>
+    <need-detail></need-detail>
     <nav-bar> </nav-bar>
     <map-item> </map-item>
-    <need-list></need-list>
+    
   </div>
 </template>
 
@@ -10,15 +12,26 @@
 import MapItem from "@/components/MapItem.vue"
 import NavBar from "@/components/NavBar.vue"
 import NeedsList from "@/components/NeedsList.vue"
-
+import NeedDetail from "@/components/NeedDetail.vue"
 
 
 export default {
   name: 'App',
+  data(){
+    return {
+      needs: []
+    }
+  },
   components: {
     "map-item": MapItem,
     "nav-bar": NavBar,
-    "need-list": NeedsList
+    "need-list": NeedsList,
+    "need-detail": NeedDetail
+  },
+  mounted(){
+    fetch('http://localhost:3000/api/needs')
+    .then( res => res.json())
+    .then( needs => this.needs = needs )
   }
 }
 </script>

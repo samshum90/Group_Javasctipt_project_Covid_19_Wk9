@@ -1,13 +1,21 @@
 <template>
   <div>
-      <li>{{ need.name }}</li>
+      <li v-on:click="selectANeed">{{ need.name }}</li>
   </div>
 </template>
 
 <script>
+import { eventBus } from '@/main.js';
 export default {
     name: "need-item",
-    props: ['need']
+    props: ['need'],
+    methods: {
+        selectANeed() {
+            eventBus.$emit('select-a-need',this.need);
+        //    BookingService.deleteBookings(this.booking._id)
+        //     .then(() => eventBus.$emit('booking-deleted',this.booking._id))
+        }
+    }
 }
 </script>
 
