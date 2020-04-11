@@ -1,6 +1,6 @@
 <template>
-<div>
-  <p>About</p>
+<div class="about-container">
+  <h1>About</h1>
 </div>
 </template>
 
@@ -12,5 +12,8 @@ export default {
 </script>
 
 <style>
+.about-container{
+  text-align: center;
 
+}
 </style>
