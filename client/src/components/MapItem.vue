@@ -5,18 +5,6 @@
       <span>Zoom: {{ zoom }}</span>
       <span>Bounds: {{ bounds }}</span>
     </div>
-    <form id="sightings-form" v-on:submit="handleSubmit">
-          <h2>Add an address</h2>
-          <div class="formWrap">
-              <label for="address">Please input your address</label>
-              <input type="text" id="address" v-model="address"/>
-          </div>
-          <div class="formWrap">
-              <label for="postcode">Please input your postcode</label>
-              <input type="text" id="postcode" v-model="postcode"/>
-          </div>
-          <input type="submit" value="add" id="add"/>
-      </form>
     <l-map
       style="height: 80%; width: 100%"
       :zoom="zoom"
