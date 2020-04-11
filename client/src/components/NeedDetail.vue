@@ -34,6 +34,8 @@
 
 <script>
 import { eventBus } from '@/main.js';
+import NeedService from '@/services/NeedService.js';
+
 export default {
     name: "need-detail",
     data(){
@@ -60,8 +62,11 @@ export default {
         },
 
         deleteNeed(){
-            eventBus.$emit('delete-a-need', this.need._id );
-            this.need = null;
+            NeedService.deleteNeed(this.need._id)
+            .then(() => {
+                eventBus.$emit('delete-a-need', this.need._id );
+                this.need = null;
+            })
         }
 
     }
