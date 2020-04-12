@@ -64,4 +64,3 @@ z-index: 0;
 height: 80%; 
 width: 100%;
 }
-</style>
