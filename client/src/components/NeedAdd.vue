@@ -44,10 +44,11 @@ export default {
   components: {
   },
   props: {
-
+    
   },
   data() {
     return {
+      locations: null,
       name: "",
       content: "",
       needDescription: "",
@@ -60,13 +61,42 @@ export default {
         postCode: "",
         time: "",
         date: "",
+        lat: "",
+        lon: ""
       }
     };
   },
     methods: {
-    HandleSubmitNeed() {
-		  event.preventDefault()
-      eventBus.$emit("submit-need", this.$data);
+    async HandleSubmitNeed() {
+      event.preventDefault();
+      const url = 'https://nominatim.openstreetmap.org/search?format=json&q='+this.contactDetails.address;
+      await fetch(url)
+      .then( res => res.json())
+      .then( location => {
+        this.contactDetails.lat = location[0].lat;
+        this.contactDetails.lon = location[0].lon;
+        console.log(`inside then:${this.contactDetails.lat}`);
+      });
+      
+      const payload = {
+        name: this.name,
+        content: this.content,
+        needDescription: this.needDescription,
+        needStatus: this.needStatus,
+        category: this.category,
+        contactDetails:{
+          contactnumber: this.contactDetails.contactnumber,
+          email: this.contactDetails.email,
+          address: this.contactDetails.address,
+          postCode: this.contactDetails.postCode,
+          time: this.contactDetails.time,
+          date: this.contactDetails.date,
+          lat: this.contactDetails.lat,
+          lon: this.contactDetails.lon
+       }
+      }
+
+      eventBus.$emit("submit-need", payload);
       this.content = this.description = "";
       this.status = true;
     }
