@@ -21,7 +21,16 @@ export default {
       "need-item": NeedItem,
       "add-need" : AddNeed 
     },
+    data(){
+      return {
+    
+      }
+    },
     mounted(){
+      eventBus.$on('submit-need', (need) => {
+        NeedService.addNeed(need)
+        .then(needWithId => this.needs.push(needWithId))
+    })
       eventBus.$on('delete-a-need', (id) => {
         let index = this.needs.findIndex(need => need._id === id);
         this.needs.splice(index,1);
@@ -32,10 +41,7 @@ export default {
         const index = this.needs.findIndex(need => need._id === needToUpdate._id);
         this.needs.splice(index, 1, updateNeed);
       })
-    eventBus.$on('submit-need', (need) => {
-      NeedService.addNeed(need)
-      .then(needWithId => this.need(needWithId))
-    })
+
     }
 }
 
