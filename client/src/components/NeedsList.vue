@@ -1,7 +1,6 @@
 <template>
   <div class="list-container">
       <h2>All the Needs Info</h2>
-      <add-need> </add-need>
       <ul>
           <need-item v-for="(need, index) in needs" :need="need" :key="index"></need-item>
 

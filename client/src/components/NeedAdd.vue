@@ -39,22 +39,28 @@
 
 <script>
 import { eventBus } from "@/main.js";
-
 export default {
   name: "need-form",
+  components: {
+  },
+  props: {
+
+  },
   data() {
     return {
       name: "",
       content: "",
-      description: "",
-      catagory: "",
-      contactnumber: "",
-      email: "",
-      address: "",
-      postcode: "",
-      posttime: "",
-      postdate: "",
-      status: true
+      needDescription: "",
+      needStatus: true,
+      category: "",
+      contactDetails:{
+        contactnumber: "",
+        email: "",
+        address: "",
+        postCode: "",
+        time: "",
+        date: "",
+      }
     };
   },
     methods: {
