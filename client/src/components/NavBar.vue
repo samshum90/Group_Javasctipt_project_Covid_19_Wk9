@@ -8,10 +8,6 @@
         <font-awesome-icon icon="window-close" id="clbut"/>
       </b-button>
       <h1>Covid19</h1>
-<<<<<<< HEAD
-      <h3 v-on:click="handleClickMap">Map</h3>
-      <h3 v-on:click="handleClickabout">About</h3>
-=======
       <router-link :to="{ name: 'home' }">
           <h3>Map</h3>
       </router-link>
@@ -93,4 +89,3 @@ export default {
   transition: 0.3s;
 }
 </style>
->>>>>>> feature/navbar
