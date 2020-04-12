@@ -1,17 +1,26 @@
 <template>
     <div class="map-container">
-    
-    <l-map class="map"
-      :zoom="zoom"
-      :center="center"
-      @update:zoom="zoomUpdated"
-      @update:center="centerUpdated"
-      @update:bounds="boundsUpdated"
-    >
-      <l-tile-layer :url="url"></l-tile-layer>
+      <ul v-for="(need, index) in needs" :need="need" :key="index">
+        <li>{{ getLatLng(need.contactDetails.address) }}</li>
+      </ul>
+      <l-map class="map"
+        :zoom="zoom"
+        :center="center"
+        @update:zoom="zoomUpdated"
+        @update:center="centerUpdated"
+        @update:bounds="boundsUpdated"
+      >
+        <l-tile-layer :url="url"></l-tile-layer>
         <l-marker :lat-lng="markerLatLng" ></l-marker>
-    </l-map>
+        <div v-for="(location, index) in needsLocations" :location="location" :key="index">
+          <l-marker :lat-lng="location"></l-marker>
+        </div>
+        
+      </l-map>
+    
     </div>
+ 
+   
 </template>
 
 <script>
@@ -24,13 +33,18 @@ export default {
     LTileLayer,
     LMarker
   },
+  props: ['needs'],
   data () {
     return {
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       zoom: 13,
       center: [55.94100, -3.20356],
       bounds: null,
-      markerLatLng: [55.94100, -3.20356]
+      markerLatLng: [55.94100, -3.20356],
+      needsLocations: [
+        [55.9423682,-3.2683761],
+        [55.94692396000001,-3.20235642]
+      ]
     };
   },
   mounted() {
@@ -40,6 +54,19 @@ export default {
         iconUrl: require('leaflet/dist/images/marker-icon.png'),
         shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 });
+  },
+  computed: {
+    getLatLng: function(address){
+      const url = 'https://nominatim.openstreetmap.org/search?format=json&q='+address;
+      let latlng;
+      fetch(url)
+      .then( res => res.json())
+      .then( location => {
+        latlng = `[${location[0].lat},${location[0].lon}]`
+        console.log(latlng);
+      });
+      return latlng;
+    }
   },
   methods: {
     zoomUpdated (zoom) {
@@ -51,6 +78,7 @@ export default {
     boundsUpdated (bounds) {
       this.bounds = bounds;
     }
+    
   }
 }
 </script>

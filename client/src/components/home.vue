@@ -2,7 +2,7 @@
   <div>
       <need-list :needs="needs"></need-list>
       <need-detail></need-detail>
-    <map-item> </map-item>
+    <map-item :needs="needs"> </map-item>
   </div>
 </template>
 

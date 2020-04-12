@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="need-detail">
       <h2>I am the detail of a need:</h2>
       <div v-if="need!=null">
             <form v-on:submit="updateNeed">
@@ -74,6 +74,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.need-detail{
+    background: lightblue;
+}
 </style>
