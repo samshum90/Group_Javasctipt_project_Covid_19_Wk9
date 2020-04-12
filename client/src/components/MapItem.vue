@@ -3,6 +3,7 @@
       <ul v-for="(need, index) in needs" :need="need" :key="index">
         <li>{{ getLatLng(need.contactDetails.address) }}</li>
       </ul>
+      <p>{{ getName("sam") }}</p>
       <l-map class="map"
         :zoom="zoom"
         :center="center"
@@ -44,7 +45,8 @@ export default {
       needsLocations: [
         [55.9423682,-3.2683761],
         [55.94692396000001,-3.20235642]
-      ]
+      ],
+      tmpLatLng: null
     };
   },
   mounted() {
@@ -56,17 +58,7 @@ export default {
 });
   },
   computed: {
-    getLatLng: function(address){
-      const url = 'https://nominatim.openstreetmap.org/search?format=json&q='+address;
-      let latlng;
-      fetch(url)
-      .then( res => res.json())
-      .then( location => {
-        latlng = `[${location[0].lat},${location[0].lon}]`
-        console.log(latlng);
-      });
-      return latlng;
-    }
+    
   },
   methods: {
     zoomUpdated (zoom) {
@@ -77,6 +69,24 @@ export default {
     },
     boundsUpdated (bounds) {
       this.bounds = bounds;
+    },
+    getLatLng: function(address){
+      const url = 'https://nominatim.openstreetmap.org/search?format=json&q='+address;
+      let location;
+      let result = fetch(url)
+      .then( res => res.json())
+      .then( location => {
+        location = "["+location[0].lat + ", "+location[0].lon + "]";
+        this.tmpLatLng = location;
+        console.log(location);
+        // return location;
+      });
+      // console.log(result);
+        // console.log(`location outside:${location}`);
+      return this.tmpLatLng;    
+    },
+    getName: function(name){
+      return "Hello "+name;
     }
     
   }
