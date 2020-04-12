@@ -72,18 +72,21 @@ export default {
     },
     getLatLng: function(address){
       const url = 'https://nominatim.openstreetmap.org/search?format=json&q='+address;
-      let location;
+      let latlng;
       let result = fetch(url)
       .then( res => res.json())
       .then( location => {
-        location = "["+location[0].lat + ", "+location[0].lon + "]";
-        this.tmpLatLng = location;
-        console.log(location);
-        // return location;
+        latlng = "["+location[0].lat + ", "+location[0].lon + "]";
+      //   // this.tmpLatLng = location;
+      //   // console.log(location);
+      //   latlng = location;
+        console.log(`inside then:${latlng}`);
+        return latlng;
       });
-      // console.log(result);
-        // console.log(`location outside:${location}`);
-      return this.tmpLatLng;    
+      console.log(`latlng:${latlng}`);
+      console.log(result);
+          // console.log(`location outside:${location}`);
+      // return this.tmpLatLng;    
     },
     getName: function(name){
       return "Hello "+name;
