@@ -29,6 +29,10 @@ export default {
         const index = this.needs.findIndex(need => need._id === needToUpdate._id);
         this.needs.splice(index, 1, updateNeed);
       })
+    eventBus.$on('submit-need', (need) => {
+      NeedService.addNeed(need)
+      .then(needWithId => this.need(needWithId))
+    })
     }
 }
 
