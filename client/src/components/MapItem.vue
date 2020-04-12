@@ -1,9 +1,8 @@
 <template>
     <div class="map-container">
-      <ul v-for="(need, index) in needs" :need="need" :key="index">
-        <li>{{ getLatLng(need.contactDetails.address) }}</li>
-      </ul>
-      <p>{{ getName("sam") }}</p>
+      <div v-for="(need, index) in needs" :need="need" :key="index">
+        <p>lat:{{need.contactDetails.lat}} lon:{{need.contactDetails.lon}}</p>
+      </div>
       <l-map class="map"
         :zoom="zoom"
         :center="center"
@@ -12,20 +11,10 @@
         @update:bounds="boundsUpdated"
       >
         <l-tile-layer :url="url"></l-tile-layer>
-        <l-marker :lat-lng="markerLatLng" ></l-marker>
-<<<<<<< HEAD
-        <div v-for="(location, index) in needsLocations" :location="location" :key="index">
-          <l-marker :lat-lng="location"></l-marker>
-        </div>
-        
-      </l-map>
-    
-=======
         <div v-for="(need, index) in needs" :need="need" :key="index">
-          <p>hello</p>
+          <l-marker :lat-lng="[need.contactDetails.lat, need.contactDetails.lon]" ></l-marker>
         </div>
     </l-map>
->>>>>>> 291d1d5c084fa1a9c5455710d5df5f4926d3f80b
     </div>
  
    
@@ -95,7 +84,7 @@ export default {
       //   // this.tmpLatLng = location;
       //   // console.log(location);
       //   latlng = location;
-        console.log(`inside then:${latlng}`);
+        // console.log(`inside then:${latlng}`);
         return latlng;
       });
       console.log(`latlng:${latlng}`);
