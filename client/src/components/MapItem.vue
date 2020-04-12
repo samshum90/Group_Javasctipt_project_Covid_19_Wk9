@@ -1,24 +1,7 @@
 <template>
-    <div style="height: 1000px;">
-    <div class="info" style="height: 15%">
-      <span>Center: {{ center }}</span>
-      <span>Zoom: {{ zoom }}</span>
-      <span>Bounds: {{ bounds }}</span>
-    </div>
-    <form id="sightings-form" v-on:submit="handleSubmit">
-          <h2>Add an address</h2>
-          <div class="formWrap">
-              <label for="address">Please input your address</label>
-              <input type="text" id="address" v-model="address"/>
-          </div>
-          <div class="formWrap">
-              <label for="postcode">Please input your postcode</label>
-              <input type="text" id="postcode" v-model="postcode"/>
-          </div>
-          <input type="submit" value="add" id="add"/>
-      </form>
-    <l-map
-      style="height: 80%; width: 100%"
+    <div class="map-container">
+    
+    <l-map class="map"
       :zoom="zoom"
       :center="center"
       @update:zoom="zoomUpdated"
@@ -73,5 +56,12 @@ export default {
 </script>
 
 <style>
-
+.map-container{
+  height: 1000px;
+}
+.map {
+z-index: 0;
+height: 80%; 
+width: 100%;
+}
 </style>

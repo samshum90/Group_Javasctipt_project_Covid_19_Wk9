@@ -19,6 +19,7 @@ export default {
       "need-item": NeedItem
     },
     mounted(){
+<<<<<<< HEAD
       eventBus.$on('delete-a-need', (id) => {
         let index = this.needs.findIndex(need => need._id === id);
         this.needs.splice(index,1);
@@ -45,3 +46,7 @@ export default {
     top: 20%;
 }
 </style>
+=======
+    }
+}
+>>>>>>> feature/navbar
