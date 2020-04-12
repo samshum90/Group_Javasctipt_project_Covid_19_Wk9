@@ -1,5 +1,6 @@
 <template>
   <div>
+      <need-add></need-add>
       <need-list :needs="needs"></need-list>
       <need-detail></need-detail>
     <map-item :needs="needs"> </map-item>
