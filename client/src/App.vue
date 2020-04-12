@@ -3,12 +3,7 @@
     <need-list :needs="needs"></need-list>
     <need-detail></need-detail>
     <nav-bar> </nav-bar>
-<<<<<<< HEAD
-    <map-item> </map-item>
-    
-=======
     <router-view/>
->>>>>>> feature/navbar
   </div>
 </template>
 
@@ -28,7 +23,6 @@ export default {
   },
   components: {
     "map-item": MapItem,
-<<<<<<< HEAD
     "nav-bar": NavBar,
     "need-list": NeedsList,
     "need-detail": NeedDetail
@@ -37,9 +31,6 @@ export default {
     fetch('http://localhost:3000/api/needs')
     .then( res => res.json())
     .then( needs => this.needs = needs )
-=======
-    "nav-bar": NavBar
->>>>>>> feature/navbar
   }
 }
 </script>
