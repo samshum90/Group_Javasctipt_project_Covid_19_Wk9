@@ -1,8 +1,10 @@
 <template>
   <div class="list-container">
       <h2>All the Needs Info</h2>
+      <add-need> </add-need>
       <ul>
           <need-item v-for="(need, index) in needs" :need="need" :key="index"></need-item>
+
       </ul>
   </div>
 </template>
@@ -11,12 +13,14 @@
 import { eventBus } from '@/main.js';
 import NeedItem from './NeedItem.vue';
 import NeedService from '@/services/NeedService.js';
+import AddNeed from '@/components/AddNeed.vue';
 
 export default {
     name: "needs-list",
     props: ['needs'],
     components: {
-      "need-item": NeedItem
+      "need-item": NeedItem,
+      "add-need" : AddNeed 
     },
     mounted(){
       eventBus.$on('delete-a-need', (id) => {
