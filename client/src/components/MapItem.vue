@@ -13,12 +13,19 @@
       >
         <l-tile-layer :url="url"></l-tile-layer>
         <l-marker :lat-lng="markerLatLng" ></l-marker>
+<<<<<<< HEAD
         <div v-for="(location, index) in needsLocations" :location="location" :key="index">
           <l-marker :lat-lng="location"></l-marker>
         </div>
         
       </l-map>
     
+=======
+        <div v-for="(need, index) in needs" :need="need" :key="index">
+          <p>hello</p>
+        </div>
+    </l-map>
+>>>>>>> 291d1d5c084fa1a9c5455710d5df5f4926d3f80b
     </div>
  
    
@@ -37,6 +44,7 @@ export default {
   props: ['needs'],
   data () {
     return {
+      name: "map",
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       zoom: 13,
       center: [55.94100, -3.20356],
@@ -55,7 +63,14 @@ export default {
         iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
         iconUrl: require('leaflet/dist/images/marker-icon.png'),
         shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
-});
+        });
+  },
+  computed() {
+    // convertPostcode(postcode) {
+    //   for( need in this.need ){
+        
+    //   }
+    // }
   },
   computed: {
     
@@ -94,6 +109,9 @@ export default {
     
   }
 }
+
+
+
 </script>
 
 <style>

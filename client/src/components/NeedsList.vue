@@ -3,6 +3,7 @@
       <h2>All the Needs Info</h2>
       <ul>
           <need-item v-for="(need, index) in needs" :need="need" :key="index"></need-item>
+
       </ul>
   </div>
 </template>
@@ -11,14 +12,25 @@
 import { eventBus } from '@/main.js';
 import NeedItem from './NeedItem.vue';
 import NeedService from '@/services/NeedService.js';
+import AddNeed from '@/components/AddNeed.vue';
 
 export default {
     name: "needs-list",
     props: ['needs'],
     components: {
-      "need-item": NeedItem
+      "need-item": NeedItem,
+      "add-need" : AddNeed 
+    },
+    data(){
+      return {
+    
+      }
     },
     mounted(){
+      eventBus.$on('submit-need', (need) => {
+        NeedService.addNeed(need)
+        .then(needWithId => this.needs.push(needWithId))
+    })
       eventBus.$on('delete-a-need', (id) => {
         let index = this.needs.findIndex(need => need._id === id);
         this.needs.splice(index,1);
@@ -29,10 +41,7 @@ export default {
         const index = this.needs.findIndex(need => need._id === needToUpdate._id);
         this.needs.splice(index, 1, updateNeed);
       })
-    eventBus.$on('submit-need', (need) => {
-      NeedService.addNeed(need)
-      .then(needWithId => this.need(needWithId))
-    })
+
     }
 }
 
