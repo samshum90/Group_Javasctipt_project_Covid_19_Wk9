@@ -8,29 +8,29 @@
           <label for="content">Content:</label>
           <input type="text" id="content" name="content" v-model="content"/>
           
-          <label for="description">Description:</label>
-          <input type="text" id="description" name="description" v-model="description"/>
+          <label for="needDescription">Description:</label>
+          <input type="text" id="needDescription" name="needDescription" v-model="needDescription"/>
           
           <label for="category">Category:</label>
           <input type="text" id="category" name="category" v-model="category"/>
           
           <label for="contactnumber">Contact Number:</label>
-          <input type="number" id="contactnumber" name="contactnumber" v-model="contactnumber" />
+          <input type="number" id="contactnumber" name="contactnumber" v-model="contactDetails.contactnumber" />
           
           <label for="email">Email:</label>
-          <input type="text" id="email" name="email" v-model="email" />
+          <input type="text" id="email" name="email" v-model="contactDetails.email" />
           
           <label for="address">Address:</label>
-          <input type="text" id="address" name="address" v-model="address" />
+          <input type="text" id="address" name="address" v-model="contactDetails.address" />
           
           <label for="postcode">Postcode:</label>
-          <input type="text" id="postcode" name="postcode" v-model="postcode" />
+          <input type="text" id="postcode" name="postcode" v-model="contactDetails.postCode" />
           
           <label for="posttime">Post Time:</label>
-          <input type="time" id="posttime" name="posttime" v-model="posttime" />
+          <input type="time" id="posttime" name="posttime" v-model="contactDetails.time" />
           
           <label for="postdate">Post Date:</label>
-          <input type="date" id="postdate" name="postdate" v-model="postdate" />
+          <input type="date" id="postdate" name="postdate" v-model="contactDetails.date" />
 
            <input type="submit" name="submit" value="Save" />
     </form>
