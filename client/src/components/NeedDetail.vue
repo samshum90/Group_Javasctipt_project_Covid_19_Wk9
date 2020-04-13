@@ -75,14 +75,11 @@ export default {
                 eventBus.$emit('delete-a-need', this.need._id );
                 this.need = null;
             })
-<<<<<<< HEAD
         },
         handleUpdate: function() {
             eventBus.$emit("status-change", this.need);
         },
-=======
         }
->>>>>>> develop
     }
 }
 </script>
