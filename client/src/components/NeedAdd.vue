@@ -19,7 +19,12 @@
           </label>
 
           <label for="category">Category:
-            <input type="text" id="category" name="category" v-model="category" required/>
+            <select name="category" v-model="category" id="jobPriority" class = "selectPriority">
+              <option value="" disabled selected>Please choose your request category</option>
+              <option v-for="category in this.$GCategorys" :value="category" v-bind:key="category">
+                {{ category }}
+              </option>
+            </select>
           </label>
 
           <label for="contactnumber">Contact Number:
@@ -38,13 +43,6 @@
             <input type="text" placeholder="EH12 7TQ" id="postcode" name="postcode" v-model="contactDetails.postCode" required/>
           </label>
 
-          <label for="posttime">Post Time:
-            <input type="time" id="posttime" name="posttime" v-model="contactDetails.time" />
-          </label>
-
-          <label for="postdate">Post Date:
-            <input type="date" id="postdate" name="postdate" v-model="contactDetails.date" />
-          </label>
            <input type="submit" name="submit" value="Save" />
     </form>
   </div>
@@ -52,6 +50,7 @@
 
 <script>
 import { eventBus } from "@/main.js";
+
 export default {
   name: "need-form",
   components: {
@@ -82,6 +81,17 @@ export default {
     methods: {
     async HandleSubmitNeed() {
       event.preventDefault();
+
+      const date = new Date();
+      const year = date.getFullYear();
+      const month = date.getMonth();
+      const day = date.getDate();
+      const hour = date.getHours();
+      const minute = date.getMinutes();
+      const second = date.getSeconds();
+      const formateDate = day+":"+month+":"+year;
+      const formateTime = hour+":"+minute+":"+second;
+
       const url = 'https://nominatim.openstreetmap.org/search?format=json&q='+this.contactDetails.address;
       await fetch(url)
       .then( res => res.json())
@@ -102,8 +112,8 @@ export default {
           email: this.contactDetails.email,
           address: this.contactDetails.address,
           postCode: this.contactDetails.postCode,
-          time: this.contactDetails.time,
-          date: this.contactDetails.date,
+          time: formateTime,
+          date: formateDate,
           lat: this.contactDetails.lat,
           lon: this.contactDetails.lon
        }
