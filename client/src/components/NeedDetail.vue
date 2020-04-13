@@ -21,13 +21,6 @@
                         <option v-for="category in this.$GCategorys" :value="category" v-bind:key="category">
                             {{ category }}
                         </option>
-                        <!-- <option value="shopping">Picking up shopping</option>
-                        <option value="medicine">Picking up medicine</option>
-                        <option value="posting">Posting mail</option>
-                        <option value="call">A friendly phone call</option>
-                        <option value="supplies">Urgent supplies</option>
-                        <option value="GPConsulting">GP Consulting</option>
-                    <option value="others">Others</option> -->
                     </select>
                 </label>
 
