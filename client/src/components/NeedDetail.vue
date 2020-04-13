@@ -1,7 +1,7 @@
 <template>
-  <div>
-      <h2>I am the detail of a need:</h2>
+  <div class="need-detail">
       <div v-if="need!=null">
+                <h2>I am the detail of a need:</h2>
             <form v-on:submit="updateNeed">
               <label for="name">Name:</label>
               <input type="text" id="name" v-model="need.name"><br/>
@@ -9,6 +9,10 @@
               <input type="text" id="content" v-model="need.content"><br/>
               <label for="description">Description:</label>
               <input type="text" id="description" v-model="need.needDescription"><br/>
+              <input type="radio" id="true" value="true" v-model="need.needStatus">
+              <label for="true">True</label>
+              <input type="radio" id="false" value="false" v-model="need.needStatus">
+              <label for="false">False</label>           
               <label for="category">Category:</label>
               <input type="text" id="category" v-model="need.category"><br/>
               <label for="number">Contact Number:</label>
@@ -24,6 +28,8 @@
               <label for="date">Post Date:</label>
               <input type="text" id="date" v-model="need.contactDetails.date"><br/>
               <input type="submit" value="Update" id="update"/>
+              <label for="">Lat:{{ need.contactDetails.lat }}</label>
+              <label for="">Lon:{{ need.contactDetails.lon }}</label>
               
           </form>
           <button v-on:click="deleteNeed">Delete</button>
@@ -74,6 +80,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.need-detail{
+    background: lightblue;
+}
 </style>

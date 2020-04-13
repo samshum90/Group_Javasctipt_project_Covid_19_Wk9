@@ -3,8 +3,8 @@
       <h2>All the Needs Info</h2>
       <ul>
           <need-item v-for="(need, index) in needs" :need="need" :key="index"></need-item>
-
       </ul>
+      <need-detail></need-detail>
   </div>
 </template>
 
@@ -13,13 +13,15 @@ import { eventBus } from '@/main.js';
 import NeedItem from './NeedItem.vue';
 import NeedService from '@/services/NeedService.js';
 import AddNeed from '@/components/AddNeed.vue';
+import NeedDetail from "@/components/NeedDetail.vue"
 
 export default {
     name: "needs-list",
     props: ['needs'],
     components: {
       "need-item": NeedItem,
-      "add-need" : AddNeed 
+      "add-need" : AddNeed,
+      "need-detail": NeedDetail,
     },
     data(){
       return {
