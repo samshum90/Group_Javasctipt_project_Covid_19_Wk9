@@ -55,16 +55,7 @@ export default {
     methods:{
         updateNeed(event){
             event.preventDefault();
-            // const need = {
-            //     "name": "this.need.name",
-            //     "email": "this.need.contactDetails.email"
-            // };
             eventBus.$emit('update-a-need', this.need);
-        
-            // BookingService.updateBooking(booking);
-            // .then(booking => {
-            //     eventBus.$emit('booking-added', booking);
-            // });
         },
 
         deleteNeed(){
@@ -74,9 +65,7 @@ export default {
                 this.need = null;
             })
         }
-
     }
-
 }
 </script>
 
