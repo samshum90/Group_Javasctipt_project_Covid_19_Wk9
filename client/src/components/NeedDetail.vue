@@ -79,7 +79,6 @@ export default {
         handleUpdate: function() {
             eventBus.$emit("status-change", this.need);
         },
-        }
     }
 }
 </script>
