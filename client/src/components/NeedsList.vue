@@ -1,9 +1,9 @@
 <template>
   <div class="list-container">
-      <h2>All the Needs Info</h2>
-      <ul>
+    <span class="title">
+      <h2>These people need your help</h2>
+    </span>
           <need-item v-for="(need, index) in needs" :need="need" :key="index"></need-item>
-      </ul>
       <need-detail></need-detail>
   </div>
 </template>
@@ -12,15 +12,12 @@
 import { eventBus } from '@/main.js';
 import NeedItem from './NeedItem.vue';
 import NeedService from '@/services/NeedService.js';
-import AddNeed from '@/components/AddNeed.vue';
 import NeedDetail from "@/components/NeedDetail.vue"
-
 export default {
     name: "needs-list",
     props: ['needs'],
     components: {
       "need-item": NeedItem,
-      "add-need" : AddNeed,
       "need-detail": NeedDetail,
     },
     data(){
@@ -43,20 +40,34 @@ export default {
         const index = this.needs.findIndex(need => need._id === needToUpdate._id);
         this.needs.splice(index, 1, updateNeed);
       })
-
     }
 }
-
 </script>
 
 <style lang="css" scoped>
-.list-container{background-color: darkgray;
-    border: darkslategrey;
-    border-radius: 12px;
-    padding: 2%;
-    margin: 4%;
-    width: 80%;
-    position: relative;
-    top: 20%;
+.title{
+  background-color:#b3daff;
+  padding: 20px;
+  text-align: center;
+  width: 100%
+}
+  
+.column {
+  float: left;
+  width: 33.33%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.list-container{
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
+  justify-content: center;
 }
 </style>

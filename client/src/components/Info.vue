@@ -1,37 +1,38 @@
 <template>
 
-<div class="about-container"><br>
-  <h1 class="h1">The Team</h1><br><br>
+<div class="info-container"><br>
+  <h1 class="h1">Information</h1><br><br>
   <div class="column">
-    <img class ="jun" src="https://media.istockphoto.com/photos/cheeta-picture-id945521030" alt="dog test">
-    <h2>Jun</h2>
+    <h2>GOV.UK</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, 
       purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+    <a href="https://www.gov.uk/coronavirus">www.gov.uk</a>
   </div>
   
   <div class="column">
-    <img class ="andrew" src="https://media.istockphoto.com/photos/cheeta-picture-id945521030" alt="dog test">
-    <h2>Andrew</h2>
+    <h2>NHS</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+    <a href="https://www.nhs.uk/news/">www.nhs.uk/news/</a>
   </div>
 
   
   <div class="column">
-    <img class ="sam" src="https://media.istockphoto.com/photos/cheeta-picture-id945521030" alt="dog test">
-    <h2>Sam</h2>
+    <h2>World Health Organization</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+    <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/donate">coronavirus-2019/donate</a>
   </div>
 </div>
+
 </template>
 
 <script>
 export default {
-    name:"about"
+    name:"info"
 }
 </script>
 
 <style>
-.about-container{
+.info-container{
   padding: 20px;
   text-align: center;
 }
@@ -59,20 +60,4 @@ export default {
   background-color: white;
   justify-content: center;
 }
-
-.andrew {
-    max-width:40%;
-    height:auto;
-}
-
-.sam {
-    max-width:40%;
-    height:auto;
-}
-
-.jun {
-    max-width:40%;
-    height:auto;
-}
-
 </style>

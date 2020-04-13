@@ -28,7 +28,6 @@
 <script>
 import {LMap, LTileLayer, LMarker, LTooltip, LPopup} from 'vue2-leaflet';
 import { Icon } from 'leaflet';
-
 export default {
   components: {
     LMap,
@@ -107,9 +106,6 @@ export default {
     
   }
 }
-
-
-
 </script>
 
 <style>
@@ -121,3 +117,4 @@ z-index: 0;
 height: 80%; 
 width: 100%;
 }
+</style>

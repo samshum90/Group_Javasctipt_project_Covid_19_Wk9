@@ -1,6 +1,6 @@
 <template>
   <div>
-      <li v-on:click="selectANeed">{{ need.name }}</li>
+      <p v-on:click="selectANeed">{{ need.name }}</p>
   </div>
 </template>
 
@@ -11,14 +11,11 @@ export default {
     props: ['need'],
     methods: {
         selectANeed() {
-            eventBus.$emit('select-a-need',this.need);
-        
+            eventBus.$emit('select-a-need',this.need);    
         }
     }
-
 }
 </script>
 
 <style>
-
 </style>

@@ -19,7 +19,6 @@ import MapItem from "@/components/MapItem.vue"
 import NeedsList from "@/components/NeedsList.vue"
 import NeedAdd from "@/components/NeedAdd.vue"
 import { eventBus } from '@/main.js'
-
 export default {
   name: "home",
     data(){
@@ -38,10 +37,8 @@ export default {
     fetch('http://localhost:3000/api/needs')
     .then( res => res.json())
     .then( needs => this.needs = needs )
-
   },
   methods: {
-
   }
 }
 </script>
@@ -49,5 +46,6 @@ export default {
 <style>
 .button-container{
   text-align: right;
+  margin-right: 20px;
 }
 </style>

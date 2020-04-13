@@ -1,18 +1,21 @@
 <template>
 <div>
-  <b-button v-b-toggle.sidebar-no-header id="bbutton">
+  <b-button v-b-toggle.sidebar-no-header class="bbutton">
     <font-awesome-icon icon="bars" id="navbut"/>
   </b-button>
     <b-sidebar class="sidenav" id="sidebar-no-header" no-header shadow>
       <b-button v-b-toggle.sidebar-no-header class="btn-cancel">
         <font-awesome-icon icon="window-close" id="clbut"/>
       </b-button>
-      <h1>Covid19</h1>
+      <h1 class="covid">Covid19</h1>
       <router-link :to="{ name: 'home' }">
           <h3>Map</h3>
       </router-link>
       <router-link :to="{ name: 'requesthelp' }">
           <h3>Make a request</h3>
+      </router-link>
+      <router-link :to="{ name: 'info' }">
+          <h3>Information</h3>
       </router-link>
       <router-link :to="{ name: 'about' }">
           <h3>About</h3>
@@ -24,12 +27,13 @@
 <script>
 export default {
   name: 'nav-bar'
-
 }
-
 </script>
 
 <style>
+.covid {
+  font-size: 4em;
+}
 .btn-cancel {
   color: #111;
   background-color: #111;
@@ -40,16 +44,15 @@ export default {
     font-size: 2em;
     margin: 3px
 }
-#bbutton{
-  border: none;
-   position: absolute;
-   z-index: 70;
-  background-color: none;
-
+.bbutton{
+  z-index: 70;
+  position: -webkit-sticky;
+  position: sticky;
+  cursor: pointer;
 }
-
 #navbut{
-  /* position: absolute; */
+  position: -webkit-sticky;
+  position: sticky;
   top: 0;
   right: 25px;
   font-size: 36px;
@@ -68,7 +71,6 @@ export default {
   transition: all 0.3s;
   opacity: 0.99;
 }
-
 .sidenav a {
   text-align: left;
   padding: 8px 8px 8px 32px;
