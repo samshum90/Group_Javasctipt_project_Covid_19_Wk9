@@ -87,7 +87,7 @@ export default {
   text-align: left;
   padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 2em;
+  font-size: 2git em;
   color: #818181;
   display: block;
   transition: 0.3s;
