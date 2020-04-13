@@ -12,7 +12,6 @@
 import { eventBus } from '@/main.js';
 import NeedItem from './NeedItem.vue';
 import NeedService from '@/services/NeedService.js';
-import AddNeed from '@/components/AddNeed.vue';
 import NeedDetail from "@/components/NeedDetail.vue"
 
 export default {
@@ -20,7 +19,6 @@ export default {
     props: ['needs'],
     components: {
       "need-item": NeedItem,
-      "add-need" : AddNeed,
       "need-detail": NeedDetail,
     },
     data(){
@@ -43,10 +41,8 @@ export default {
         const index = this.needs.findIndex(need => need._id === needToUpdate._id);
         this.needs.splice(index, 1, updateNeed);
       })
-
     }
 }
-
 </script>
 
 <style lang="css" scoped>
