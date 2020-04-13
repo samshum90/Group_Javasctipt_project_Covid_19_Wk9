@@ -21,7 +21,16 @@
     <h2>Sam</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
   </div>
+
+  <div style = "position:relative; left:415px;" class="angela">
+    <img class ="angela" src="https://i.pinimg.com/originals/3a/4f/70/3a4f702c1a3e138125e99ae7e4aa7b40.jpg" alt="dog test">
+    <h2>Angela</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+  </div>
+
 </div>
+
+
 </template>
 
 <script>
@@ -45,6 +54,14 @@ export default {
 .column {
   float: left;
   width: 33.33%;
+}
+
+.angela {
+  padding: 20px;
+  text-align: center;
+  max-width:40%;
+  height:auto;
+  align-content: center;
 }
 
 .row:after {

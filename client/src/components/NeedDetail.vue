@@ -44,7 +44,7 @@
                 </label>
 
             <input type="submit" value="Update" id="update"/>
-            <button v-on:click="deleteNeed">Delete</button>
+            <input type="submit" value="Delete" v-on:click="deleteNeed"/>
             
           </form>
       </div>

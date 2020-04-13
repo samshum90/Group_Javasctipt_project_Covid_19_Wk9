@@ -1,6 +1,8 @@
 <template>
-  <div>
-      <p v-on:click="selectANeed">{{ need.name }}</p>
+  <div v-on:click="selectANeed" class="needitem">
+      <p >{{ need.content }}</p>
+      <p >{{ need.Category }}</p>
+      <p >{{ need.needStatus }}</p>
   </div>
 </template>
 
@@ -18,4 +20,10 @@ export default {
 </script>
 
 <style>
+    .needitem{
+        border: 1px solid;
+        border-radius: 10px;
+        margin: 10px
+    }
+
 </style>
