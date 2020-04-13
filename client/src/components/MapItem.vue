@@ -21,8 +21,6 @@
         </div>
     </l-map>
     </div>
- 
-   
 </template>
 
 <script>
@@ -44,14 +42,7 @@ export default {
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       zoom: 13,
       center: [55.94100, -3.20356],
-      bounds: null,
-      markerLatLng: [55.94100, -3.20356],
-      needsLocations: [
-        [55.9423682,-3.2683761],
-        [55.94692396000001,-3.20235642]
-      ],
-      tmpLatLng: null,
-      
+      bounds: null
     };
   },
   mounted() {
@@ -61,14 +52,9 @@ export default {
         iconUrl: require('leaflet/dist/images/marker-icon.png'),
         shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
         });
-        eventBus.$on("map-item", beer => this.markFavourite(beer));
   },
   computed() {
-    // convertPostcode(postcode) {
-    //   for( need in this.need ){
-        
-    //   }
-    // }
+
   },
   computed: {
     
@@ -82,33 +68,9 @@ export default {
     },
     boundsUpdated (bounds) {
       this.bounds = bounds;
-    },
-    getLatLng: function(address){
-      const url = 'https://nominatim.openstreetmap.org/search?format=json&q='+address;
-      let latlng;
-      let result = fetch(url)
-      .then( res => res.json())
-      .then( location => {
-        latlng = "["+location[0].lat + ", "+location[0].lon + "]";
-      //   // this.tmpLatLng = location;
-      //   // console.log(location);
-      //   latlng = location;
-        // console.log(`inside then:${latlng}`);
-        return latlng;
-      });
-      console.log(`latlng:${latlng}`);
-      console.log(result);
-          // console.log(`location outside:${location}`);
-      // return this.tmpLatLng;    
-    },
-    getName: function(name){
-      return "Hello "+name;
     }
-    
   }
 }
-
-
 
 </script>
 
