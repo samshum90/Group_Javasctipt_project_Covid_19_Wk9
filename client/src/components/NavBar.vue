@@ -5,39 +5,28 @@
     <b-sidebar id="sidebar-no-header" aria-labelledby="sidebar-no-header-title" no-header shadow>
       <template v-slot:default="{ hide }">
         <div class="p-3">
-          <h4 id="sidebar-no-header-title">Custom header sidebar</h4>
+          <h4 id="sidebar-no-header-title">COVID-19</h4>
           <p>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
-            in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+            The COVID-19 virus spreads primarily through droplets of saliva or 
+            discharge from the nose when an infected person coughs or sneezes, so it’s 
+            important that you also practice respiratory etiquette (for example, by 
+            coughing into a flexed elbow).
           </p>
           <nav class="mb-3">
-            <b-nav vertical>
-              <b-nav-item active @click="hide">Active</b-nav-item>
-              <b-nav-item href="#link-1" @click="hide">Link</b-nav-item>
-              <b-nav-item href="#link-2" @click="hide">Another Link</b-nav-item>
+            <b-nav vertical> 
+              <b-nav-item @click="hide">   
+               <router-link :to="{ name: 'home' }">
+                 <h3>Map</h3>
+               </router-link>
+               <router-link :to="{ name: 'about' }">
+                 <h3>About</h3>
+               </router-link>
+              </b-nav-item>
             </b-nav>
           </nav>
           <b-button variant="primary" block @click="hide">Close Sidebar</b-button>
         </div>
       </template>
-    </b-sidebar>
-  </div>
-</template>
-<div>
-  <b-button v-b-toggle.sidebar-no-header id="bbutton">
-    <font-awesome-icon icon="bars" id="navbut"/>
-  </b-button>
-    <b-sidebar class="sidenav" id="sidebar-no-header" no-header shadow>
-      <b-button v-b-toggle.sidebar-no-header class="btn-cancel">
-        <font-awesome-icon icon="window-close" id="clbut"/>
-      </b-button>
-      <h1>Covid19</h1>
-      <router-link :to="{ name: 'home' }">
-          <h3>Map</h3>
-      </router-link>
-      <router-link :to="{ name: 'about' }">
-          <h3>About</h3>
-      </router-link>
     </b-sidebar>
   </div>
 </template>

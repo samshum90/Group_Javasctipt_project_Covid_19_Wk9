@@ -24,11 +24,11 @@
               <label for="date">Post Date:</label>
               <input type="text" id="date" v-model="need.contactDetails.date"><br/>
               <input type="submit" value="Update" id="update"/>
-              
           </form>
           <button v-on:click="deleteNeed">Delete</button>
-      
+       
       </div>
+       
   </div>
 </template>
 
@@ -78,4 +78,6 @@ export default {
 .need-detail{
     background: lightblue;
 }
+
+
 </style>
