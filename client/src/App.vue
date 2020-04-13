@@ -2,6 +2,7 @@
   <div>
     <nav-bar> </nav-bar>
     <router-view/>
+
   </div>
 </template>
 
@@ -21,6 +22,11 @@ export default {
 </script>
 
 <style>
+.h1{
+  background-color:#b3daff;
+ padding: 30px;
+  text-align: center; 
+}
 
 
 </style>

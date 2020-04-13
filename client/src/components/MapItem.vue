@@ -1,5 +1,6 @@
 <template>
     <div class="map-container">
+      <h1 class="h1">Map</h1>
       <l-map class="map"
         :zoom="zoom"
         :center="center"

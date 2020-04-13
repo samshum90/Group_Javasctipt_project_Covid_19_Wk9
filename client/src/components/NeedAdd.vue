@@ -3,7 +3,7 @@
   <div class="form-container">
     <form v-on:submit.prevent="HandleSubmitNeed" class="form">
 
-       <h1 class="h1-request">Post a request</h1>
+       <h1 class="h1">Post a request</h1>
         <p>Please fill in this form to create a request.</p>
         
           <label for="name">Name:
@@ -132,11 +132,6 @@ export default {
   align-content: center;
 }
 
-.h1-request{
-  background-color:#b3daff;
-  padding: 50px;
-  text-align: center;
-}
 .savebtn:hover {
   opacity: 1;
 }
