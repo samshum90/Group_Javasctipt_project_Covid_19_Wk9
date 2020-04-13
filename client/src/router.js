@@ -3,6 +3,9 @@ import Router from 'vue-router';
 import Home from './components/home';
 import About from './components/about';
 
+
+
+
 Vue.use(Router);
 
 export default new Router({
