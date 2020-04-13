@@ -109,8 +109,7 @@ export default {
        }
       }
       eventBus.$emit("submit-need", payload);
-      this.content = this.description = "";
-      this.status = true;
+
     }
   }
 };

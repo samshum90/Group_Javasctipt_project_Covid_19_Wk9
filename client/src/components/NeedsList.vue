@@ -46,12 +46,15 @@ export default {
         const index = this.needs.findIndex(need => need._id === needToUpdate._id);
         this.needs.splice(index, 1, updateNeed);
       })
+<<<<<<< HEAD
       eventBus.$on('status-change', needToChange => {
        const updateNeed = {...needToChange, needStatus: !needToChange.needStatus}
        NeedService.updateNeed(updateNeed);
        const index = this.needs.findIndex(need => need._id === needToChange._id);
       this.needs.splice(index, 1, updateNeed);
       })
+=======
+>>>>>>> develop
     }
 }
 </script>
