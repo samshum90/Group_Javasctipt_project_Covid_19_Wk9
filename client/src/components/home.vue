@@ -35,6 +35,8 @@ export default {
 
 <style scoped>
 
-
+body {
+  background-color: blue;
+}
 
 </style>

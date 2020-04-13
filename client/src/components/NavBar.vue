@@ -18,6 +18,9 @@
                <router-link :to="{ name: 'home' }">
                  <h3>Map</h3>
                </router-link>
+               <router-link :to="{ name: 'requesthelp' }">
+                <h3>Make a request</h3>
+               </router-link>
                <router-link :to="{ name: 'about' }">
                  <h3>About</h3>
                </router-link>
