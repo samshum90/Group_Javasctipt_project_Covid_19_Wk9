@@ -1,6 +1,6 @@
 <template>
   <div class="need-detail" v-if="need!=null">
-        <form v-on:submit="updateNeed" class="form">
+        <form v-on:submit="updateNeed" class="detailform">
             <h2 class="h2-details">More details</h2>
                 
                 <label for="name">Name:
@@ -45,6 +45,7 @@
 
             <input type="submit" value="Update" id="update"/>
             <input type="submit" value="Delete" v-on:click="deleteNeed"/>
+            <input type="submit" value="I will fulill the request" v-if="need.needStatus" v-on:click="handleUpdate"/>
             
           </form>
       </div>
@@ -83,7 +84,10 @@ export default {
                 eventBus.$emit('delete-a-need', this.need._id );
                 this.need = null;
             })
-        }
+        },
+        handleUpdate: function() {
+            eventBus.$emit("status-change", this.need);
+        },
     }
 }
 </script>
@@ -97,13 +101,13 @@ export default {
     justify-content: center;
 }
 
-.form{
+.detailform{
   padding: 16px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  width: 80%;
   align-content: center;
+  width: 100%;
 }
 
 .h2-details{

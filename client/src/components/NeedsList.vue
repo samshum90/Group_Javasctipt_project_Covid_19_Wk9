@@ -1,12 +1,16 @@
 <template>
-  <div class="list-container">
+<div class="needslist">
     <span class="title">
       <h2>These people need your help</h2>
     </span>
+    <span class="main-container">
+  <span class="list-container">
       <need-item v-for="(need, index) in needs" :need="need" :key="index">        
       </need-item>
-        <need-detail></need-detail>
-  </div>
+  </span>
+  <need-detail></need-detail>
+  </span>
+</div>
 </template>
 
 <script>
@@ -42,11 +46,25 @@ export default {
         const index = this.needs.findIndex(need => need._id === needToUpdate._id);
         this.needs.splice(index, 1, updateNeed);
       })
+      eventBus.$on('status-change', needToChange => {
+       const updateNeed = {...needToChange, needStatus: !needToChange.needStatus}
+       NeedService.updateNeed(updateNeed);
+       const index = this.needs.findIndex(need => need._id === needToChange._id);
+      this.needs.splice(index, 1, updateNeed);
+      })
     }
 }
 </script>
 
 <style lang="css" scoped>
+.main-container{
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.needslist{
+  display: flex;
+  flex-direction: column;
+}
 .title{
   background-color:#b3daff;
   padding: 20px;

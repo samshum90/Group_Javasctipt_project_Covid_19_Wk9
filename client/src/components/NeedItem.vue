@@ -2,7 +2,7 @@
   <div v-on:click="selectANeed" class="needitem">
       <p >Content: {{ need.content }}</p>
       <p >Category: {{ need.category }}</p>
-      <p >Category: {{ need.category }}</p>
+      <p >Postcode: {{ need.contactDetails.postCode }}</p>
       <p v-if="need.needStatus" class="help">Awaiting your help</p>
   </div>
 </template>
