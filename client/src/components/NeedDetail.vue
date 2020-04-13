@@ -25,7 +25,7 @@
                 </label>
 
                 <label for="contactnumber">Contact Number:
-                    <input type="number" placeholder="07711667566" id="contactnumber" name="contactnumber" v-model="need.contactDetails.contactnumber" required/>
+                    <input type="text" placeholder="07711667566" id="contactnumber" name="contactnumber" v-model="need.contactDetails.contactNumber" required/>
                 </label>
 
                 <label for="email">Email:

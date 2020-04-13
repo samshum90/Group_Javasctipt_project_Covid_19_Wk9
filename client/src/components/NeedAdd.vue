@@ -28,7 +28,7 @@
           </label>
 
           <label for="contactnumber">Contact Number:
-            <input type="number" placeholder="07711667566" id="contactnumber" name="contactnumber" v-model="contactDetails.contactnumber" required/>
+            <input type="number" placeholder="07711667566" id="contactnumber" name="contactnumber" v-model="contactDetails.contactNumber" required/>
           </label>
 
           <label for="email">Email:
@@ -67,7 +67,7 @@ export default {
       needStatus: true,
       category: "",
       contactDetails:{
-        contactnumber: "",
+        contactNumber: "",
         email: "",
         address: "",
         postCode: "",
@@ -108,7 +108,7 @@ export default {
         needStatus: this.needStatus,
         category: this.category,
         contactDetails:{
-          contactnumber: this.contactDetails.contactnumber,
+          contactNumber: this.contactDetails.contactNumber,
           email: this.contactDetails.email,
           address: this.contactDetails.address,
           postCode: this.contactDetails.postCode,
