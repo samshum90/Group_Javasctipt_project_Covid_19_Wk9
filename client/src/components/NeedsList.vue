@@ -5,7 +5,7 @@
     </span>
       <need-item v-for="(need, index) in needs" :need="need" :key="index">        
       </need-item>
-         <need-detail></need-detail>
+        <need-detail></need-detail>
   </div>
 </template>
 
