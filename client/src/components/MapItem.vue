@@ -61,7 +61,6 @@ export default {
         iconUrl: require('leaflet/dist/images/marker-icon.png'),
         shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
         });
-        eventBus.$on("map-item", beer => this.markFavourite(beer));
   },
   computed() {
     // convertPostcode(postcode) {
@@ -107,8 +106,6 @@ export default {
     
   }
 }
-
-
 
 </script>
 
