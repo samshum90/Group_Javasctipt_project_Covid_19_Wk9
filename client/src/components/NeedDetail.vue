@@ -1,7 +1,7 @@
 <template>
   <div class="need-detail">
-      <h2>I am the detail of a need:</h2>
       <div v-if="need!=null">
+                <h2>I am the detail of a need:</h2>
             <form v-on:submit="updateNeed">
               <label for="name">Name:</label>
               <input type="text" id="name" v-model="need.name"><br/>

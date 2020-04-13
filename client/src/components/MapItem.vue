@@ -1,8 +1,5 @@
 <template>
     <div class="map-container">
-      <div v-for="(need, index) in needs" :need="need" :key="index">
-        <p>lat:{{need.contactDetails.lat}} lon:{{need.contactDetails.lon}}</p>
-      </div>
       <l-map class="map"
         :zoom="zoom"
         :center="center"
@@ -12,7 +9,15 @@
       >
         <l-tile-layer :url="url"></l-tile-layer>
         <div v-for="(need, index) in needs" :need="need" :key="index">
-          <l-marker :lat-lng="[need.contactDetails.lat, need.contactDetails.lon]" ></l-marker>
+          <l-marker :lat-lng="[need.contactDetails.lat, need.contactDetails.lon]" >
+            <l-tooltip>
+              Name: {{ need.name }} <br>
+              Content: {{ need.content }}<br>
+              Description: {{ need.needDescription }}<br>
+              Status: {{ need.needStatus }}<br>
+              Category: {{ need.category }}<br>
+            </l-tooltip>
+          </l-marker>
         </div>
     </l-map>
     </div>
@@ -21,14 +26,16 @@
 </template>
 
 <script>
-import {LMap, LTileLayer, LMarker} from 'vue2-leaflet';
+import {LMap, LTileLayer, LMarker, LTooltip, LPopup} from 'vue2-leaflet';
 import { Icon } from 'leaflet';
 
 export default {
   components: {
     LMap,
     LTileLayer,
-    LMarker
+    LMarker,
+    LTooltip,
+    LPopup
   },
   props: ['needs'],
   data () {
@@ -43,7 +50,8 @@ export default {
         [55.9423682,-3.2683761],
         [55.94692396000001,-3.20235642]
       ],
-      tmpLatLng: null
+      tmpLatLng: null,
+      
     };
   },
   mounted() {
@@ -53,6 +61,7 @@ export default {
         iconUrl: require('leaflet/dist/images/marker-icon.png'),
         shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
         });
+        eventBus.$on("map-item", beer => this.markFavourite(beer));
   },
   computed() {
     // convertPostcode(postcode) {
