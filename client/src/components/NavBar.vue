@@ -38,7 +38,8 @@ export default {
 #clbut{
     color: #818181;
     font-size: 2em;
-    margin: 3px
+    margin: 3px;
+    cursor: pointer;
 }
 #bbutton{
   border: none;
@@ -86,7 +87,7 @@ export default {
   text-align: left;
   padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 2git em;
   color: #818181;
   display: block;
   transition: 0.3s;
