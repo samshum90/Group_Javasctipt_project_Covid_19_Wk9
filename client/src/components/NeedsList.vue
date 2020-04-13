@@ -42,10 +42,8 @@ export default {
         const index = this.needs.findIndex(need => need._id === needToUpdate._id);
         this.needs.splice(index, 1, updateNeed);
       })
-
     }
 }
-
 </script>
 
 <style lang="css" scoped>
