@@ -16,7 +16,19 @@
                 </label>
 
                 <label for="category">Category:
-                    <input type="text" id="category" name="category" v-model="category" required/>
+                    <select name="category" v-model="need.category" id="jobPriority" class = "selectPriority">
+                        <option value="" disabled selected>Please choose your request category</option>
+                        <option v-for="category in this.$GCategorys" :value="category" v-bind:key="category">
+                            {{ category }}
+                        </option>
+                        <!-- <option value="shopping">Picking up shopping</option>
+                        <option value="medicine">Picking up medicine</option>
+                        <option value="posting">Posting mail</option>
+                        <option value="call">A friendly phone call</option>
+                        <option value="supplies">Urgent supplies</option>
+                        <option value="GPConsulting">GP Consulting</option>
+                    <option value="others">Others</option> -->
+                    </select>
                 </label>
 
                 <label for="contactnumber">Contact Number:
@@ -36,11 +48,11 @@
                 </label>
 
                 <label for="posttime">Post Time:
-                    <input type="time" id="posttime" name="posttime" v-model="need.contactDetails.time" />
+                    {{ need.contactDetails.time }}
                 </label>
 
                 <label for="postdate">Post Date:
-                    <input type="date" id="postdate" name="postdate" v-model="need.contactDetails.date" />
+                    {{ need.contactDetails.date }}
                 </label>
 
             <input type="submit" value="Update" id="update"/>
