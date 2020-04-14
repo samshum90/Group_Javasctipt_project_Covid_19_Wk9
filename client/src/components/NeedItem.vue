@@ -1,6 +1,6 @@
 <template>
   <div v-on:click="selectANeed" class="needitem">
-      <h2>{{need.name}}'s requets</h2>
+      <h2>{{need.name}}'s requests</h2>
       <p >Content: {{ need.content }}</p>
       <p >Category: {{ need.category }}</p>
       <p >Postcode: {{ need.contactDetails.postCode }}</p>
