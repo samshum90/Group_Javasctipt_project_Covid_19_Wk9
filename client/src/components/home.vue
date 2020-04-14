@@ -62,7 +62,6 @@ export default {
   color: #F7F4EA;
 }
 #button-container button:hover{
-
   padding: 10px 20px;
   background-color: #5A7296;
   color: #F7F4EA;
