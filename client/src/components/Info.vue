@@ -36,12 +36,6 @@ export default {
   padding: 20px;
   text-align: center;
 }
-
-.h1{
-  background-color:#b3daff;
- padding: 50px;
-  text-align: center; 
-}
   
 .column {
   float: left;

@@ -3,7 +3,7 @@
   <div class="form-container">
     <form v-on:submit.prevent="HandleSubmitNeed" class="form">
 
-       <h1 class="h1-request">Post a request</h1>
+       <h1 class="h1">Post a request</h1>
         <p>Please fill in this form to create a request.</p>
         
           <label for="name">Name:
@@ -19,11 +19,16 @@
           </label>
 
           <label for="category">Category:
-            <input type="text" id="category" name="category" v-model="category" required/>
+            <select name="category" v-model="category" id="category" class = "category">
+              <option value="" disabled selected>Please choose your request category</option>
+              <option v-for="category in this.$GCategorys" :value="category" v-bind:key="category">
+                {{ category }}
+              </option>
+            </select>
           </label>
 
           <label for="contactnumber">Contact Number:
-            <input type="number" placeholder="07711667566" id="contactnumber" name="contactnumber" v-model="contactDetails.contactnumber" required/>
+            <input type="number" placeholder="07711667566" id="contactnumber" name="contactnumber" v-model="contactDetails.contactNumber" required/>
           </label>
 
           <label for="email">Email:
@@ -38,13 +43,6 @@
             <input type="text" placeholder="EH12 7TQ" id="postcode" name="postcode" v-model="contactDetails.postCode" required/>
           </label>
 
-          <label for="posttime">Post Time:
-            <input type="time" id="posttime" name="posttime" v-model="contactDetails.time" />
-          </label>
-
-          <label for="postdate">Post Date:
-            <input type="date" id="postdate" name="postdate" v-model="contactDetails.date" />
-          </label>
            <input type="submit" name="submit" value="Save" />
     </form>
   </div>
@@ -52,6 +50,7 @@
 
 <script>
 import { eventBus } from "@/main.js";
+
 export default {
   name: "need-form",
   components: {
@@ -68,7 +67,7 @@ export default {
       needStatus: true,
       category: "",
       contactDetails:{
-        contactnumber: "",
+        contactNumber: "",
         email: "",
         address: "",
         postCode: "",
@@ -82,6 +81,17 @@ export default {
     methods: {
     async HandleSubmitNeed() {
       event.preventDefault();
+
+      const date = new Date();
+      const year = date.getFullYear();
+      const month = date.getMonth();
+      const day = date.getDate();
+      const hour = date.getHours();
+      const minute = date.getMinutes();
+      const second = date.getSeconds();
+      const formateDate = day+":"+month+":"+year;
+      const formateTime = hour+":"+minute+":"+second;
+
       const url = 'https://nominatim.openstreetmap.org/search?format=json&q='+this.contactDetails.address;
       await fetch(url)
       .then( res => res.json())
@@ -98,12 +108,12 @@ export default {
         needStatus: this.needStatus,
         category: this.category,
         contactDetails:{
-          contactnumber: this.contactDetails.contactnumber,
+          contactNumber: this.contactDetails.contactNumber,
           email: this.contactDetails.email,
           address: this.contactDetails.address,
           postCode: this.contactDetails.postCode,
-          time: this.contactDetails.time,
-          date: this.contactDetails.date,
+          time: formateTime,
+          date: formateDate,
           lat: this.contactDetails.lat,
           lon: this.contactDetails.lon
        }
@@ -132,16 +142,19 @@ export default {
   align-content: center;
 }
 
-.h1-request{
-  background-color:#b3daff;
-  padding: 50px;
-  text-align: center;
-}
 .savebtn:hover {
   opacity: 1;
 }
+.form select {
+    width: 100%;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  padding: 16px 20px;
+  margin: 8px 0;
+}
 
-input[type=submit] {
+.form input[type=submit] {
   background-color: #4CAF50;
   color: white;
   padding: 16px 20px;
@@ -153,16 +166,16 @@ input[type=submit] {
 }
 
 /* Full-width input fields */
-input[type=text], input[type=password], input[type=number] {
+.form input[type=text], input[type=password], input[type=number] {
   width: 100%;
   padding: 15px;
-  margin: 5px 0 22px 0;
+  margin: 5px 0 10px 0;
   display: inline-block;
   border: none;
   background: #f1f1f1;
 }
 
-input[type=text]:focus, input[type=password]:focus, input[type=number]:focus {
+.form input[type=text]:focus, input[type=password]:focus, input[type=number]:focus {
   background-color: #ddd;
   outline: none;
 }

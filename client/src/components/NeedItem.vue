@@ -1,5 +1,6 @@
 <template>
   <div v-on:click="selectANeed" class="needitem">
+      <h2>{{need.name}}'s requets</h2>
       <p >Content: {{ need.content }}</p>
       <p >Category: {{ need.category }}</p>
       <p >Postcode: {{ need.contactDetails.postCode }}</p>
@@ -33,7 +34,11 @@ export default {
     /* border:1px solid; */
     background-color: #FFEB3B;
     border-radius: 5px;
-
+}
+.needitem h2{
+    background-color:#b3daff;
+    padding: 2%;
+    text-align: center; 
 }
 
 </style>

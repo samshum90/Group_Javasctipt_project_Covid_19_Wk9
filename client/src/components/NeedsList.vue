@@ -1,16 +1,14 @@
 <template>
-<div class="needslist">
-    <span class="title">
-      <h2>These people need your help</h2>
-    </span>
+  <div>
+      <h1 class="h1">These people need your help</h1>
     <span class="main-container">
-  <span class="list-container">
+    <span class="list-container">
       <need-item v-for="(need, index) in needs" :need="need" :key="index">        
       </need-item>
-  </span>
-  <need-detail></need-detail>
-  </span>
-</div>
+    </span>
+    <need-detail></need-detail>
+    </span>
+  </div>
 </template>
 
 <script>
@@ -71,6 +69,7 @@ export default {
   text-align: center;
   width: 100%
 }
+<<<<<<< HEAD
   
 .column {
   float: left;
@@ -81,11 +80,13 @@ export default {
   display: table;
   clear: both;
 }
+=======
+
+>>>>>>> dd52e5a37c3855d46c18f27820b4528166387b5d
 .list-container{
   display: flex;
   flex-direction: column;
   font-family: Arial, Helvetica, sans-serif;
   background-color: white;
-  justify-content: center;
 }
 </style>

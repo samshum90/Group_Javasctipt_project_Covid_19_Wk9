@@ -1,7 +1,7 @@
 <template>
   <div class="need-detail" v-if="need!=null">
         <form v-on:submit="updateNeed" class="detailform">
-            <h2 class="h2-details">More details</h2>
+            <h2>More details</h2>
                 
                 <label for="name">Name:
                     <input type="text" placeholder="John Doe" id="name" name="name" v-model="need.name" required/>
@@ -16,11 +16,16 @@
                 </label>
 
                 <label for="category">Category:
-                    <input type="text" id="category" name="category" v-model="category" required/>
+                    <select name="category" v-model="need.category" id="category" class = "category">
+                        <option value="" disabled selected>Please choose your request category</option>
+                        <option v-for="category in this.$GCategorys" :value="category" v-bind:key="category">
+                            {{ category }}
+                        </option>
+                    </select>
                 </label>
 
                 <label for="contactnumber">Contact Number:
-                    <input type="number" placeholder="07711667566" id="contactnumber" name="contactnumber" v-model="need.contactDetails.contactnumber" required/>
+                    <input type="text" placeholder="07711667566" id="contactnumber" name="contactnumber" v-model="need.contactDetails.contactNumber" required/>
                 </label>
 
                 <label for="email">Email:
@@ -33,14 +38,6 @@
 
                 <label for="postcode">Postcode:
                     <input type="text" placeholder="EH12 7TQ" id="postcode" name="postcode" v-model="need.contactDetails.postCode" required/>
-                </label>
-
-                <label for="posttime">Post Time:
-                    <input type="time" id="posttime" name="posttime" v-model="need.contactDetails.time" />
-                </label>
-
-                <label for="postdate">Post Date:
-                    <input type="date" id="postdate" name="postdate" v-model="need.contactDetails.date" />
                 </label>
 
             <input type="submit" value="Update" id="update"/>
@@ -75,14 +72,10 @@ export default {
                 eventBus.$emit('delete-a-need', this.need._id );
                 this.need = null;
             })
-<<<<<<< HEAD
         },
         handleUpdate: function() {
             eventBus.$emit("status-change", this.need);
         },
-=======
-        }
->>>>>>> develop
     }
 }
 </script>
@@ -97,7 +90,6 @@ export default {
 }
 
 .detailform{
-  padding: 16px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -105,38 +97,46 @@ export default {
   width: 100%;
 }
 
-.h2-details{
-  background-color:#b3daff;
-  padding: 50px;
-  text-align: center;
-}
 .savebtn:hover {
   opacity: 1;
 }
-
-input[type=submit] {
+.detailform select {
+    width: 100%;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    padding: 5px;
+    margin:0px 2px;
+}
+.detailform input[type=submit] {
   background-color: #4CAF50;
   color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
   border: none;
   cursor: pointer;
   width: 100%;
   opacity: 0.9;
+  margin: 4px 0px;
+  padding: 5px 0px;
 }
 
 /* Full-width input fields */
-input[type=text], input[type=password], input[type=number] {
+.detailform input[type=text], input[type=password], input[type=number] {
   width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
   display: inline-block;
   border: none;
   background: #f1f1f1;
+    padding: 5px;
+    margin:0px 2px;
 }
 
-input[type=text]:focus, input[type=password]:focus, input[type=number]:focus {
+.detailform input[type=text]:focus, input[type=password]:focus, input[type=number]:focus {
   background-color: #ddd;
-  outline: none;
+  outline: none; 
+}
+
+.detailform h2{
+    background-color:#b3daff;
+    padding: 2%;
+    text-align: center; 
 }
 </style>

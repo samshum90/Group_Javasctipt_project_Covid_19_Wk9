@@ -8,7 +8,7 @@ db.needs.insertMany([
     content: "Bread, Eggs, Milk, Yogurt",
     needDescription: "Gluten free yogurt",
     needStatus: true,
-    category: "Groceries",
+    category: "shopping",
 
     contactDetails: {
       contactNumber: "07711666577",
@@ -27,7 +27,7 @@ db.needs.insertMany([
     content: "Almond Milk, Potatos, Toilet Papper, Bacon",
     needDescription: "Lots of toilet papper",
     needStatus: false,
-    category: "Groceries",
+    category: "shopping",
 
     contactDetails: {
       contactNumber: "07778346565",
@@ -46,7 +46,7 @@ db.needs.insertMany([
     content: "anti-inflammatory, Pain Killers, , Yogurt",
     needDescription: "NSAIDs",
     needStatus: true,
-    category: "Medical",
+    category: "medicine",
 
     contactDetails: {
       contactNumber: "07711666577",

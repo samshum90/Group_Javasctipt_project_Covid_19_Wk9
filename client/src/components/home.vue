@@ -1,8 +1,12 @@
 <template>
   <div>
-    <div class="button-container">
-      <button v-on:click="mapHidden = !mapHidden">Map </button>
-      <button v-on:click="listHidden = !listHidden">list </button>
+    <div id="button-container" class="sticky-top">
+      <button v-on:click="mapHidden = !mapHidden, listHidden = !listHidden">
+        <font-awesome-icon icon="map-marked-alt" id="icon"/>  Map 
+        </button>
+      <button v-on:click="listHidden = !listHidden, mapHidden = !mapHidden">
+        <font-awesome-icon icon="list-ul" id="icon"/> List 
+      </button>
     </div>
       <need-list v-if="!listHidden"
       :needs="needs"></need-list>
@@ -44,8 +48,24 @@ export default {
 </script>
 
 <style>
-.button-container{
+#icon{
+  margin-right: 10px;
+}
+#button-container{
   text-align: right;
-  margin-right: 20px;
+  margin-right: 50px;
+  z-index: 10;
+}
+#button-container button{
+  border:black 10px;
+  padding: 10px 20px;
+  background-color: #80A1D4;
+  color: #F7F4EA;
+}
+#button-container button:hover{
+
+  padding: 10px 20px;
+  background-color: #5A7296;
+  color: #F7F4EA;
 }
 </style>
