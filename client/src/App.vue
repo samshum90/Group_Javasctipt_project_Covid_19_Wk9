@@ -24,7 +24,7 @@ export default {
 <style>
 .h1{
   background-color:#b3daff;
- padding: 30px;
+ padding: 20px;
   text-align: center; 
 }
 

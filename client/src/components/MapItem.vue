@@ -1,13 +1,7 @@
 <template>
     <div class="map-container">
-
       <h1 class="h1">Map</h1>
-      <span id="findme" class="sticky-top">
-        <button v-on:click="geoFindMe">Show my location</button>
-      </span>
-      <span id="findme" class="sticky-top">
-        <button v-on:click="getLoc">bring me to my location</button>
-      </span>
+
       <p v-if="errorStr">{{ errorStr }}</p>
       <l-map class="map" id="map"
         :zoom="zoom"
@@ -16,7 +10,13 @@
         @update:center="centerUpdated"
         @update:bounds="boundsUpdated"
       >   
+
         <l-tile-layer :url="url"></l-tile-layer>
+          <l-control id="findme" class="sticky-top">
+            <button v-on:click="geoFindMe">
+              Show my location
+            </button>
+          </l-control>
         <div v-for="(need, index) in needs" :need="need" :key="index">
           <l-marker :lat-lng="[need.contactDetails.lat, need.contactDetails.lon]" >
             <l-tooltip>
@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import {LMap, LTileLayer, LMarker, LTooltip, LPopup} from 'vue2-leaflet';
+import {LMap, LTileLayer, LMarker, LTooltip, LPopup, LControl} from 'vue2-leaflet';
 import { Icon } from 'leaflet';
 export default {
   components: {
@@ -42,7 +42,8 @@ export default {
     LTileLayer,
     LMarker,
     LTooltip,
-    LPopup
+    LPopup,
+    LControl
   },
   props: ['needs'],
   data () {
@@ -53,6 +54,8 @@ export default {
       center: [55.94100, -3.20356],
       bounds: null,
       location:null,
+      latitude:null,
+      longitude:null,
       gettingLocation: false,
       errorStr:null
     };
@@ -90,26 +93,26 @@ export default {
       navigator.geolocation.getCurrentPosition(pos => {
         this.gettingLocation = false;
         this.location = pos;
-
+        this.latitude = this.location.coords.latitude;
+        this.longitude = this.location.coords.longitude;
+        this.center = [this.latitude, this.longitude];
       }, err => {
         this.gettingLocation = false;
         this.errorStr = err.message;
       })
     },
-    getLoc(){
-    this.center.setView(new L.LatLng(location.coords.latitude, location.coords.longitude));
-    }
+
   }
 }
 </script>
 
 <style>
+
 #findme{
   position: sticky;
   text-align: right;
   margin-right: 50px;
-  z-index: 50;
-  top:200;
+  z-index: 200;
 }
 #findme button{
   border:black 10px;
@@ -118,17 +121,15 @@ export default {
   color: #F7F4EA;
 }
 #findme button:hover{
-
   padding: 10px 20px;
   background-color: #5A7296;
   color: #F7F4EA;
 }
 .map-container{
-  height: 1000px;
+  z-index: 0;
+  height: 100vh;
 }
 .map {
 z-index: 0;
-height: 80%; 
-width: 100%;
 }
 </style>

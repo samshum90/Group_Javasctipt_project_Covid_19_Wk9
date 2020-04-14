@@ -10,7 +10,6 @@
     </div>
       <need-list v-if="!listHidden"
       :needs="needs"></need-list>
-
         <map-item
         v-if="!mapHidden"
         :needs="needs"
