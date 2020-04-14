@@ -40,7 +40,7 @@
                     <input type="text" placeholder="EH12 7TQ" id="postcode" name="postcode" v-model="need.contactDetails.postCode" required/>
                 </label>
 
-                <label for="posttime">Time request was made:
+                <label for="posttime">Request time:
                     {{ need.contactDetails.time }}
                 </label>
 
@@ -61,6 +61,7 @@ import { eventBus } from '@/main.js';
 import NeedService from '@/services/NeedService.js';
 export default {
     name: "need-detail",
+    props: ['need'],
     data(){
         return {
             need: null

@@ -5,9 +5,7 @@
     <p >Category: {{ need.category }}</p>
     <p>Postcode: {{ need.contactDetails.postCode }}</p>
     <p>Request date: {{ need.contactDetails.date}}</p>
-
-
-      <p v-if="need.needStatus" class="help">Awaiting your help</p>
+    <p v-if="need.needStatus" class="help">Awaiting your help</p>
   </div>
 </template>
 

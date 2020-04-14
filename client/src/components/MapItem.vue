@@ -17,11 +17,17 @@
           <p v-if="errorStr">{{ errorStr }}</p>
           </l-control>
         <div v-for="(need, index) in needs" :need="need" :key="index">
-          <l-marker :lat-lng="[need.contactDetails.lat, need.contactDetails.lon]" >
+          <l-marker :lat-lng="[need.contactDetails.lat, need.contactDetails.lon]" :need="need" :key="index">
             <l-tooltip>
               <need-item :need="need" :key="index">        
             </need-item>
             </l-tooltip>
+
+            <l-popup id="popup">            
+                <need-detail :need="need" :key="index">        
+                </need-detail>
+            </l-popup>
+
           </l-marker>
           <l-marker v-if="location" 
           :lat-lng="[location.coords.latitude, location.coords.longitude]">
@@ -44,6 +50,9 @@
 import {LMap, LTileLayer, LMarker, LTooltip, LPopup, LControl, LIcon} from 'vue2-leaflet';
 import { Icon, icon } from 'leaflet';
 import NeedItem from './NeedItem.vue';
+import NeedDetail from './NeedDetail.vue';
+import { eventBus } from '@/main.js'
+
 export default {
   components: {
     LMap,
@@ -53,6 +62,7 @@ export default {
     LPopup,
     LControl,
     "need-item": NeedItem,
+    "need-detail": NeedDetail
   },
   props: ['needs'],
   data () {
@@ -70,20 +80,14 @@ export default {
       staticAnchor: [16, 37],
     };
   },
-  mounted() {
+    mounted() {
         delete Icon.Default.prototype._getIconUrl;
         Icon.Default.mergeOptions({
         iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
         iconUrl: require('leaflet/dist/images/marker-icon.png'),
         shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
         });
-  },
-  computed() {
-
-  },
-  computed: {
-    
-  },
+    },
   methods: {
     zoomUpdated (zoom) {
       this.zoom = zoom;
@@ -111,12 +115,20 @@ export default {
         this.errorStr = err.message;
       })
     },
-
+    selectAPopNeed(need) {
+      eventBus.$emit('select-a-need', need); 
+      console.log("emit")   
+    }
   }
 }
 </script>
 
 <style>
+.leaflet-popup-content {
+    max-width: 100%;
+    height: 250px;
+    overflow-y: scroll;
+}
 .icon-container img{
   width: 35px;
   margin-left: 18px;
