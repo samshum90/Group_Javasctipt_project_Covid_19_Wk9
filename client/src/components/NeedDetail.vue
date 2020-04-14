@@ -40,6 +40,14 @@
                     <input type="text" placeholder="EH12 7TQ" id="postcode" name="postcode" v-model="need.contactDetails.postCode" required/>
                 </label>
 
+                <label for="posttime">Time request was made:
+                    {{ need.contactDetails.time }}
+                </label>
+
+                <label for="postdate">Post request was made:
+                    {{ need.contactDetails.date }}
+                </label>
+
             <input type="submit" value="Update" id="update"/>
             <input type="submit" value="Delete" v-on:click="deleteNeed"/>
             <input type="submit" value="I will fulill the request" v-if="need.needStatus" v-on:click="handleUpdate"/>
