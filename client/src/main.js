@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
-import { LMap, LTileLayer, LMarker, LTooltip, LPopup } from 'vue2-leaflet';
+import { LMap, LTileLayer, LMarker, LTooltip, LPopup, LControl } from 'vue2-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faListUl, faMapMarkedAlt, faBars, faWindowClose } from '@fortawesome/free-solid-svg-icons';
@@ -27,6 +27,7 @@ Vue.component('l-tile-layer', LTileLayer);
 Vue.component('l-marker', LMarker);
 Vue.component('l-tooltip', LTooltip);
 Vue.component('l-popup', LPopup);
+Vue.component('l-control', LControl);
 
 Vue.config.productionTip = false
 
