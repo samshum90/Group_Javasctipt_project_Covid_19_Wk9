@@ -21,6 +21,7 @@
 import MapItem from "@/components/MapItem.vue"
 import NeedsList from "@/components/NeedsList.vue"
 import NeedAdd from "@/components/NeedAdd.vue"
+
 import { eventBus } from '@/main.js'
 export default {
   name: "home",
@@ -36,14 +37,17 @@ export default {
     "need-list": NeedsList,
     "need-add": NeedAdd
   },
+  created(){
+    console.log('Created is being triggered!')
+  },
   mounted(){
+    console.log('Mounted is being triggered!')
     fetch('http://localhost:3000/api/needs')
     .then( res => res.json())
     .then( needs => this.needs = needs )
-  },
-  methods: {
+    }
   }
-}
+
 </script>
 
 <style>

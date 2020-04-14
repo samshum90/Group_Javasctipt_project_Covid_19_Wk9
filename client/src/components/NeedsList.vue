@@ -29,11 +29,6 @@ export default {
       }
     },
     mounted(){
-      eventBus.$on('submit-need', (need) => {
-        NeedService.addNeed(need)
-        .then(needWithId => this.needs.push(needWithId))
-        this.$router.push({ name: 'home' });
-    })
       eventBus.$on('delete-a-need', (id) => {
         let index = this.needs.findIndex(need => need._id === id);
         this.needs.splice(index,1);
