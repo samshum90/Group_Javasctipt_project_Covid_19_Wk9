@@ -8,6 +8,9 @@
         <font-awesome-icon icon="window-close" id="clbut"/>
       </b-button>
       <h1>Covid19</h1>
+      <router-link :to="{ name: 'projectinfo' }">
+        <h3>Project Info</h3>
+      </router-link>
       <router-link :to="{ name: 'home' }">
           <h3>Map</h3>
       </router-link>
