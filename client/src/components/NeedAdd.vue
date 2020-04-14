@@ -50,6 +50,7 @@
 
 <script>
 import { eventBus } from "@/main.js";
+import NeedService from '@/services/NeedService.js'; 
 
 export default {
   name: "need-form",
@@ -79,7 +80,7 @@ export default {
     };
   },
     methods: {
-    async HandleSubmitNeed() {
+      HandleSubmitNeed() {
       event.preventDefault();
 
       const date = new Date();
@@ -91,38 +92,44 @@ export default {
       const second = date.getSeconds();
       const formateDate = day+":"+month+":"+year;
       const formateTime = hour+":"+minute+":"+second;
-
       const url = 'https://nominatim.openstreetmap.org/search?format=json&q='+this.contactDetails.address;
-      await fetch(url)
-      .then( res => res.json())
+
+      fetch(url)
+      .then( (res) => {
+        console.log("response converted to json")
+        return res.json()
+      })
       .then( location => {
         this.contactDetails.lat = location[0].lat;
         this.contactDetails.lon = location[0].lon;
-        console.log(`inside then:${this.contactDetails.lat}`);
-      });
-      
-      const payload = {
-        name: this.name,
-        content: this.content,
-        needDescription: this.needDescription,
-        needStatus: this.needStatus,
-        category: this.category,
-        contactDetails:{
-          contactNumber: this.contactDetails.contactNumber,
-          email: this.contactDetails.email,
-          address: this.contactDetails.address,
-          postCode: this.contactDetails.postCode,
-          time: formateTime,
-          date: formateDate,
-          lat: this.contactDetails.lat,
-          lon: this.contactDetails.lon
-       }
+      })
+      .then(() => {
+        console.log("creating payload")
+          return {
+          name: this.name,
+          content: this.content,
+          needDescription: this.needDescription,
+          needStatus: this.needStatus,
+          category: this.category,
+          contactDetails:{
+            contactNumber: this.contactDetails.contactNumber,
+            email: this.contactDetails.email,
+            address: this.contactDetails.address,
+            postCode: this.contactDetails.postCode,
+            time: formateTime,
+            date: formateDate,
+            lat: this.contactDetails.lat,
+            lon: this.contactDetails.lon
+            }
+          }
+        })
+        .then((payload) => {
+          NeedService.addNeed(payload)})
+        .then(() => {this.$router.push({ name: 'home' })})
       }
-      eventBus.$emit("submit-need", payload);
-
     }
-  }
-};
+}
+
 </script>
 
 <style>

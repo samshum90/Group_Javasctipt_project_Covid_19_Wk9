@@ -1,8 +1,6 @@
 <template>
     <div class="map-container">
       <h1 class="h1">Map</h1>
-
-      <p v-if="errorStr">{{ errorStr }}</p>
       <l-map class="map" id="map"
         :zoom="zoom"
         :center="center"
@@ -16,26 +14,45 @@
             <button v-on:click="geoFindMe">
               Show my location
             </button>
+          <p v-if="errorStr">{{ errorStr }}</p>
           </l-control>
         <div v-for="(need, index) in needs" :need="need" :key="index">
-          <l-marker :lat-lng="[need.contactDetails.lat, need.contactDetails.lon]" >
+          <l-marker :lat-lng="[need.contactDetails.lat, need.contactDetails.lon]" :need="need" :key="index">
             <l-tooltip>
-              Name: {{ need.name }} <br>
-              Content: {{ need.content }}<br>
-              Description: {{ need.needDescription }}<br>
-              Status: {{ need.needStatus }}<br>
-              Category: {{ need.category }}<br>
+              <need-item :need="need" :key="index">        
+            </need-item>
             </l-tooltip>
+
+            <l-popup id="popup">            
+                <need-detail :need="need" :key="index">        
+                </need-detail>
+            </l-popup>
+
           </l-marker>
-          <l-marker v-if="location" :lat-lng="[location.coords.latitude, location.coords.longitude]"/>
+          <l-marker v-if="location" 
+          :lat-lng="[location.coords.latitude, location.coords.longitude]">
+            <l-icon
+              :icon-anchor="staticAnchor"
+            >
+            <div class="icon-container">
+              <img src="@/assets/user-circle-solid.png"/>
+              <p>You are here</p>
+            </div>
+              
+            </l-icon>
+          </l-marker>
         </div>
     </l-map>
     </div>
 </template>
 
 <script>
-import {LMap, LTileLayer, LMarker, LTooltip, LPopup, LControl} from 'vue2-leaflet';
-import { Icon } from 'leaflet';
+import {LMap, LTileLayer, LMarker, LTooltip, LPopup, LControl, LIcon} from 'vue2-leaflet';
+import { Icon, icon } from 'leaflet';
+import NeedItem from './NeedItem.vue';
+import NeedDetail from './NeedDetail.vue';
+import { eventBus } from '@/main.js'
+
 export default {
   components: {
     LMap,
@@ -43,7 +60,9 @@ export default {
     LMarker,
     LTooltip,
     LPopup,
-    LControl
+    LControl,
+    "need-item": NeedItem,
+    "need-detail": NeedDetail
   },
   props: ['needs'],
   data () {
@@ -57,23 +76,18 @@ export default {
       latitude:null,
       longitude:null,
       gettingLocation: false,
-      errorStr:null
+      errorStr:null,
+      staticAnchor: [16, 37],
     };
   },
-  mounted() {
+    mounted() {
         delete Icon.Default.prototype._getIconUrl;
         Icon.Default.mergeOptions({
         iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
         iconUrl: require('leaflet/dist/images/marker-icon.png'),
         shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
         });
-  },
-  computed() {
-
-  },
-  computed: {
-    
-  },
+    },
   methods: {
     zoomUpdated (zoom) {
       this.zoom = zoom;
@@ -101,14 +115,37 @@ export default {
         this.errorStr = err.message;
       })
     },
-
+    selectAPopNeed(need) {
+      eventBus.$emit('select-a-need', need); 
+      console.log("emit")   
+    }
   }
   }
 
 </script>
 
 <style>
-
+.leaflet-popup-content {
+    max-width: 100%;
+    height: 250px;
+    overflow-y: scroll;
+}
+.icon-container img{
+  width: 35px;
+  margin-left: 18px;
+  filter: invert(47%) sepia(87%) saturate(1935%) hue-rotate(185deg) brightness(85%) contrast(85%);
+}
+.icon-container p{
+  white-space: nowrap;
+  font-size: 1em;
+  text-align: center;
+  margin: 0;
+  color: #2B82CB;
+}
+.icon-container{
+  display: flex;
+  flex-direction: column;
+}
 #findme{
   position: sticky;
   text-align: right;

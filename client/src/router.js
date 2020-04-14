@@ -4,6 +4,7 @@ import Home from './components/home';
 import About from './components/about';
 import NeedAdd from './components/NeedAdd';
 import Info from './components/Info';
+import ProjectInfo from './components/ProjectInfo';
 
 Vue.use(Router);
 
@@ -18,6 +19,11 @@ export default new Router({
       path:'/requesthelp',
       name:'requesthelp',
       component: NeedAdd
+    },
+    {
+      path:'/projectinfo',
+      name:'projectinfo',
+      component: ProjectInfo
     },
     {
       path:'/information',
