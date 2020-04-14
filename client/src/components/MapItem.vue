@@ -70,10 +70,7 @@ export default {
     }
   }
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> develop
 </script>
 
 <style>
