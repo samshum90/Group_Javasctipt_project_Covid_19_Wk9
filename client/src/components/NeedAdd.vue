@@ -19,7 +19,7 @@
           </label>
 
           <label for="category">Category:
-            <select name="category" v-model="category" id="jobPriority" class = "selectPriority">
+            <select name="category" v-model="category" id="category" class = "category">
               <option value="" disabled selected>Please choose your request category</option>
               <option v-for="category in this.$GCategorys" :value="category" v-bind:key="category">
                 {{ category }}
@@ -145,8 +145,16 @@ export default {
 .savebtn:hover {
   opacity: 1;
 }
+.form select {
+    width: 100%;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  padding: 16px 20px;
+  margin: 8px 0;
+}
 
-input[type=submit] {
+.form input[type=submit] {
   background-color: #4CAF50;
   color: white;
   padding: 16px 20px;
@@ -158,16 +166,16 @@ input[type=submit] {
 }
 
 /* Full-width input fields */
-input[type=text], input[type=password], input[type=number] {
+.form input[type=text], input[type=password], input[type=number] {
   width: 100%;
   padding: 15px;
-  margin: 5px 0 22px 0;
+  margin: 5px 0 10px 0;
   display: inline-block;
   border: none;
   background: #f1f1f1;
 }
 
-input[type=text]:focus, input[type=password]:focus, input[type=number]:focus {
+.form input[type=text]:focus, input[type=password]:focus, input[type=number]:focus {
   background-color: #ddd;
   outline: none;
 }

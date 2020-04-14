@@ -18,7 +18,7 @@ library.add(faListUl, faMapMarkedAlt, faBars, faWindowClose);
  
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
-Vue.prototype.$GCategorys = ["shopping","medicine","posting","call","supplies","GPConsulting","others"];
+Vue.prototype.$GCategorys = ["Shopping","Medicine","Posting","Call","Supplies","GPConsultation","Others"];
 
 export const eventBus = new Vue();
 
