@@ -76,11 +76,14 @@ export default {
             eventBus.$emit('update-a-need', this.need);
         },
         deleteNeed(){
-            NeedService.deleteNeed(this.need._id)
-            .then(() => {
-                eventBus.$emit('delete-a-need', this.need._id );
-                this.need = null;
-            })
+            // NeedService.deleteNeed(this.need._id)
+            // .then(() => {
+            //     eventBus.$emit('delete-a-need', this.need._id );
+            //     this.need = null;
+            // })
+            NeedService.deleteNeed(this.need._id);
+            eventBus.$emit('delete-a-need', this.need._id );
+            this.need = null;
         },
         handleUpdate: function() {
             eventBus.$emit("status-change", this.need);
