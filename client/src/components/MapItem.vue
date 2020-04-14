@@ -1,13 +1,18 @@
 <template>
     <div class="map-container">
+
       <h1 class="h1">Map</h1>
+      <span id="findme" class="sticky-top">
+        <button v-on:click="geoFindMe">Show my location</button>
+      </span>
+      <p v-if="errorStr">{{ errorStr }}</p>
       <l-map class="map"
         :zoom="zoom"
         :center="center"
         @update:zoom="zoomUpdated"
         @update:center="centerUpdated"
         @update:bounds="boundsUpdated"
-      >
+      >   
         <l-tile-layer :url="url"></l-tile-layer>
         <div v-for="(need, index) in needs" :need="need" :key="index">
           <l-marker :lat-lng="[need.contactDetails.lat, need.contactDetails.lon]" >
@@ -19,6 +24,7 @@
               Category: {{ need.category }}<br>
             </l-tooltip>
           </l-marker>
+          <l-marker v-if="location" :lat-lng="[location.coords.latitude, location.coords.longitude]"/>
         </div>
     </l-map>
     </div>
@@ -42,7 +48,10 @@ export default {
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       zoom: 13,
       center: [55.94100, -3.20356],
-      bounds: null
+      bounds: null,
+      location:null,
+      gettingLocation: false,
+      errorStr:null
     };
   },
   mounted() {
@@ -68,12 +77,46 @@ export default {
     },
     boundsUpdated (bounds) {
       this.bounds = bounds;
+    },
+        geoFindMe(){
+      if(!("geolocation" in navigator)) {
+        this.errorStr = 'Geolocation is not available.';
+        return;
+      }
+      this.gettingLocation = true;
+      navigator.geolocation.getCurrentPosition(pos => {
+        this.gettingLocation = false;
+        this.location = pos;
+
+      }, err => {
+        this.gettingLocation = false;
+        this.errorStr = err.message;
+      })
     }
   }
 }
 </script>
 
 <style>
+#findme{
+  position: sticky;
+  text-align: right;
+  margin-right: 50px;
+  z-index: 50;
+  top:200;
+}
+#findme button{
+  border:black 10px;
+  padding: 10px 20px;
+  background-color: #80A1D4;
+  color: #F7F4EA;
+}
+#findme button:hover{
+
+  padding: 10px 20px;
+  background-color: #5A7296;
+  color: #F7F4EA;
+}
 .map-container{
   height: 1000px;
 }
