@@ -5,8 +5,11 @@
       <span id="findme" class="sticky-top">
         <button v-on:click="geoFindMe">Show my location</button>
       </span>
+      <span id="findme" class="sticky-top">
+        <button v-on:click="getLoc">bring me to my location</button>
+      </span>
       <p v-if="errorStr">{{ errorStr }}</p>
-      <l-map class="map"
+      <l-map class="map" id="map"
         :zoom="zoom"
         :center="center"
         @update:zoom="zoomUpdated"
@@ -92,6 +95,9 @@ export default {
         this.gettingLocation = false;
         this.errorStr = err.message;
       })
+    },
+    getLoc(){
+    this.center.setView(new L.LatLng(location.coords.latitude, location.coords.longitude));
     }
   }
 }
