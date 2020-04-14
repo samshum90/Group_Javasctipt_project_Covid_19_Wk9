@@ -103,11 +103,8 @@ export default {
     },
 
   }
-}
-<<<<<<< HEAD
+  }
 
-=======
->>>>>>> dd52e5a37c3855d46c18f27820b4528166387b5d
 </script>
 
 <style>

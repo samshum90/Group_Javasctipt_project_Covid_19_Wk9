@@ -69,20 +69,6 @@ export default {
   text-align: center;
   width: 100%
 }
-<<<<<<< HEAD
-  
-.column {
-  float: left;
-  width: 33.33%;
-}
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-=======
-
->>>>>>> dd52e5a37c3855d46c18f27820b4528166387b5d
 .list-container{
   display: flex;
   flex-direction: column;
