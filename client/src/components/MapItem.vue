@@ -19,11 +19,8 @@
         <div v-for="(need, index) in needs" :need="need" :key="index">
           <l-marker :lat-lng="[need.contactDetails.lat, need.contactDetails.lon]" >
             <l-tooltip>
-              Name: {{ need.name }} <br>
-              Content: {{ need.content }}<br>
-              Description: {{ need.needDescription }}<br>
-              Status: {{ need.needStatus }}<br>
-              Category: {{ need.category }}<br>
+              <need-item :need="need" :key="index">        
+            </need-item>
             </l-tooltip>
           </l-marker>
           <l-marker v-if="location" 
@@ -46,6 +43,7 @@
 <script>
 import {LMap, LTileLayer, LMarker, LTooltip, LPopup, LControl, LIcon} from 'vue2-leaflet';
 import { Icon, icon } from 'leaflet';
+import NeedItem from './NeedItem.vue';
 export default {
   components: {
     LMap,
@@ -53,7 +51,8 @@ export default {
     LMarker,
     LTooltip,
     LPopup,
-    LControl
+    LControl,
+    "need-item": NeedItem,
   },
   props: ['needs'],
   data () {

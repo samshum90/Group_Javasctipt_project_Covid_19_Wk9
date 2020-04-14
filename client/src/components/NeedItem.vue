@@ -1,9 +1,12 @@
 <template>
   <div v-on:click="selectANeed" class="needitem">
-      <h2>{{need.name}}'s requests</h2>
-      <p >Content: {{ need.content }}</p>
-      <p >Category: {{ need.category }}</p>
-      <p >Postcode: {{ need.contactDetails.postCode }}</p>
+    <h2>{{need.name}}'s requests</h2>
+    <p >Content: {{ need.content }}</p>
+    <p >Category: {{ need.category }}</p>
+    <p>Postcode: {{ need.contactDetails.postCode }}</p>
+    <p>Request date: {{ need.contactDetails.date}}</p>
+
+
       <p v-if="need.needStatus" class="help">Awaiting your help</p>
   </div>
 </template>
@@ -22,10 +25,13 @@ export default {
 </script>
 
 <style>
-    .needitem{
+.needitem p{
+        margin: 7px 0px;
+    } 
+.needitem{
         border: 1px solid;
         border-radius: 5px;
-        margin: 10px;
+        margin: 5px;
         padding: 10px;
         cursor: pointer;
     } 
