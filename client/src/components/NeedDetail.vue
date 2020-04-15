@@ -109,6 +109,7 @@ export default {
   align-content: center;
   width: 100%;
   height: 90vh;
+  top: 50px;
 }
 
 .savebtn:hover {

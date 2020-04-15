@@ -153,10 +153,10 @@ export default {
   flex-direction: column;
 }
 #findme{
-  position: sticky;
   text-align: right;
   margin-right: 50px;
   z-index: 200;
+  top: 100px;
 }
 #findme button{
   border:black 10px;
