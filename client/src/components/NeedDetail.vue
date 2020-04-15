@@ -1,7 +1,7 @@
 <template>
   <div class="need-detail" v-if="need!=null">
         <form v-on:submit="updateNeed" class="detailform">
-            <h2>More details</h2>
+            <h3>More details</h3>
                 
                 <label for="name">Name:
                     <input type="text" placeholder="John Doe" id="name" name="name" v-model="need.name" required/>
@@ -143,7 +143,7 @@ export default {
   outline: none; 
 }
 
-.detailform h2{
+.detailform h3{
     background-color:#b3daff;
     padding: 2%;
     text-align: center; 
