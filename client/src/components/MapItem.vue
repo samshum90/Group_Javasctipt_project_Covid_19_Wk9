@@ -120,7 +120,8 @@ export default {
       console.log("emit")   
     }
   }
-}
+  }
+
 </script>
 
 <style>

@@ -14,6 +14,7 @@
         v-if="!mapHidden"
         :needs="needs"
       ></map-item>
+      <category-chart :needs="needs"></category-chart>
   </div>
 </template>
 
@@ -21,6 +22,7 @@
 import MapItem from "@/components/MapItem.vue"
 import NeedsList from "@/components/NeedsList.vue"
 import NeedAdd from "@/components/NeedAdd.vue"
+import CategoryChart from "@/components/CategoryChart.vue"
 
 import { eventBus } from '@/main.js'
 export default {
@@ -35,7 +37,8 @@ export default {
     components: {
     "map-item": MapItem,
     "need-list": NeedsList,
-    "need-add": NeedAdd
+    "need-add": NeedAdd,
+    "category-chart": CategoryChart
   },
   created(){
     console.log('Created is being triggered!')
@@ -66,7 +69,6 @@ export default {
   color: #F7F4EA;
 }
 #button-container button:hover{
-
   padding: 10px 20px;
   background-color: #5A7296;
   color: #F7F4EA;
