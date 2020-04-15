@@ -1,6 +1,6 @@
 <template>
-  <div id="need-detail" v-if="need!=null">
-        <form v-on:submit="updateNeed" id="detailform" class="sticky-top">
+  <div id="need-detail" v-if="need!=null" class="sticky-top">
+        <form v-on:submit="updateNeed" id="detailform" >
             <h3>More details</h3>
                 
                 <label for="name">Name:
@@ -100,6 +100,7 @@ export default {
     background-color: white;
     justify-content: center;
     z-index: 0;
+    top: 50px;
 }
 
 #detailform{
@@ -109,7 +110,6 @@ export default {
   align-content: center;
   width: 100%;
   height: 90vh;
-  top: 50px;
 }
 
 .savebtn:hover {

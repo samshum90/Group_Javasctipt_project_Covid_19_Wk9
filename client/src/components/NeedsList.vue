@@ -1,15 +1,16 @@
 <template>
   <div>
-      <h1 class="h1">{{ countNeedsWaiting }} people need your help
-        <span id="need-done" data-toggle="tooltip" title="Requires satisfied">{{ countNeedsDone }}</span>
-        <span id="need-wait" title="Requires still waiting">{{ countNeedsWaiting }}</span>
-      </h1>
+      <h1 class="h1">{{ countNeedsWaiting }} people need your help</h1>
+      <h2 class="need-done" data-toggle="tooltip" title="requests completed">
+        Together we have completed {{ countNeedsDone }} requests</h2>
     <span class="main-container">
     <span class="list-container">
       <need-item v-for="(need, index) in needs" :need="need" :key="index">        
       </need-item>
     </span>
+    <span class="detail-container">
     <need-detail></need-detail>
+    </span>
     </span>
   </div>
 </template>
@@ -72,20 +73,16 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
-span#need-done{
-  background-color: green;
+<style lang="css">
+.need-done{
+  background-color: #4CAF50;
+  color: white;
   padding: 10px;
   font-size: 18px;
   margin: 10px;
   cursor: pointer;
-}
-
-span#need-wait{
-  background: yellow;
-  padding: 10px;
-  font-size: 18px;
-  margin: 10px;
+  text-align: center; 
+   opacity: 0.9;
 }
 
 .main-container{
@@ -107,5 +104,10 @@ span#need-wait{
   flex-direction: column;
   font-family: Arial, Helvetica, sans-serif;
   background-color: white;
+  margin: 5px;
+}
+.detail-container{
+  margin: 10px 20px 10px 10px;
+
 }
 </style>

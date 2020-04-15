@@ -1,6 +1,6 @@
 <template>
   <div v-on:click="selectANeed" class="needitem">
-    <h3>{{need.name}}'s requests</h3>
+    <h3>{{need.name}}'s Requests</h3>
     <p >Content: {{ need.content }}</p>
     <p >Category: {{ need.category }}</p>
     <p>Postcode: {{ need.contactDetails.postCode }}</p>
@@ -24,15 +24,16 @@ export default {
 
 <style>
 .needitem p{
-        margin: 7px 0px;
+    margin: 7px 0px;
     } 
 .needitem{
-        border: 1px solid;
-        border-radius: 5px;
-        margin: 5px;
-        padding: 10px;
-        cursor: pointer;
-    } 
+    border: 1px solid;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 2.5px 5px 10px #888888;
+} 
 .help{
     padding: 10px;
     /* border:1px solid; */

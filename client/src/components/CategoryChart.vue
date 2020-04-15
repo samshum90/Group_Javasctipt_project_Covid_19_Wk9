@@ -1,11 +1,17 @@
 <template>
     <div>
-        <h1 class="h1">Chart</h1>
+        <h1 class="h1">Charts</h1>
+              <h2 class="need-wait" data-toggle="tooltip" title="Number of people that need your help" >
+        {{ countNeedsWaiting }} people need your help</h2>
+              <h2 class="need-done" data-toggle="tooltip" title="requests completed">
+        Together we have completed {{ countNeedsDone }} requests</h2>
+
         <GChart
             v-if="chartData"
             type="ColumnChart"
             :data="chartData"
             :options="chartOptions"
+            :colors="colors"
         />
     </div>
 </template>
@@ -18,17 +24,36 @@ export default {
     data(){
         return {
             chartOptions: {
-                width: 800,
-                height: 240,
-                title: 'Require by category',
+                width: 1000,
+                height: 700,
+                title: 'Number of requests in each Catagory',
                 colors: ['#084887', '#f58a07', '#f9ab55', '#f7f5fb', '#909cc2', '#C1BB8F', '#A176BC']
-            }
+            },
+            colors: ['#084887', '#f58a07', '#f9ab55', '#f7f5fb', '#909cc2', '#C1BB8F', '#A176BC']
         }
     },
     components : {
         GChart
     },
     computed:{
+        countNeedsDone(){
+        let needsDone = 0;
+        for(const need of this.needs){
+          if(need.needStatus === false ){
+            needsDone ++;
+          }
+        }
+        return needsDone;
+      },
+      countNeedsWaiting(){
+        let needsWait = 0;
+        for(const need of this.needs){
+          if(need.needStatus === true ){
+            needsWait ++;
+          }
+        }
+        return needsWait;
+      },
         getCate(){
         
 // Shopping","Medicine","Posting","Call","Supplies","GPConsultation","Others"
@@ -60,7 +85,7 @@ export default {
             const jsonStr = [
                 {
                     "cate": "total",
-                    "count": "0"
+                    "Number": "0",
                 },
                 {
                     "cate": "Supplies",
@@ -107,5 +132,14 @@ export default {
 </script>
 
 <style scoped>
+.need-wait{
+  background-color: #FFEB3B;
+  padding: 10px;
+  font-size: 18px;
+  margin: 10px;
+  cursor: pointer;
+  text-align: center; 
+   opacity: 0.9;
+}
 
 </style>

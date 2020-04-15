@@ -4,9 +4,10 @@
       <l-map class="map" id="map"
         :zoom="zoom"
         :center="center"
-        @update:zoom="zoomUpdated"
         @update:center="centerUpdated"
         @update:bounds="boundsUpdated"
+        @update:zoom="zoomUpdated"
+
       >   
 
         <l-tile-layer :url="url"></l-tile-layer>
@@ -69,11 +70,11 @@ export default {
     return {
       name: "map",
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-      zoom: 13,
-      center: [55.94100, -3.20356],
+      center: latLng(55.94100, -3.20356),
       currentZoom: 12.5,
-      currentCenter: latLng(55.94100, -3.20356),
+      // currentCenter: latLng(55.94100, -3.20356),
       bounds: null,
+      zoom: 13,
       location:null,
       latitude:null,
       longitude:null,
@@ -91,6 +92,11 @@ export default {
         });
     },
     computed:{
+      setzoom(){
+        if( center != latLng(55.94100, -3.20356)){
+          this.zoom = 16
+        }
+      }
     },
   methods: {
     zoomUpdated (zoom) {
@@ -114,7 +120,6 @@ export default {
         this.latitude = this.location.coords.latitude;
         this.longitude = this.location.coords.longitude;
         this.center = [this.latitude, this.longitude];
-    
       },
       err => {
         this.gettingLocation = false;
