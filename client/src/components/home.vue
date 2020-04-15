@@ -60,7 +60,7 @@ export default {
 #button-container{
   text-align: right;
   margin-right: 50px;
-  z-index: 10;
+  z-index: 80;
 }
 #button-container button{
   border:black 10px;

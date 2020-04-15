@@ -1,6 +1,6 @@
 <template>
-  <div class="need-detail" v-if="need!=null">
-        <form v-on:submit="updateNeed" class="detailform">
+  <div id="need-detail" v-if="need!=null">
+        <form v-on:submit="updateNeed" id="detailform" class="sticky-top">
             <h3>More details</h3>
                 
                 <label for="name">Name:
@@ -64,7 +64,7 @@ export default {
     props: ['need'],
     data(){
         return {
-            need: null
+            // need: null
         }
     },
     mounted(){
@@ -93,26 +93,28 @@ export default {
 </script>
 
 <style >
-.need-detail{
+#need-detail{
     width: 100%;
     display: flex;
     font-family: Arial, Helvetica, sans-serif;
     background-color: white;
     justify-content: center;
+    z-index: 0;
 }
 
-.detailform{
+#detailform{
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-content: center;
   width: 100%;
+  height: 90vh;
 }
 
 .savebtn:hover {
   opacity: 1;
 }
-.detailform select {
+#detailform select {
     width: 100%;
     display: inline-block;
     border: none;
@@ -120,7 +122,7 @@ export default {
     padding: 5px;
     margin:0px 2px;
 }
-.detailform input[type=submit] {
+#detailform input[type=submit] {
   background-color: #4CAF50;
   color: white;
   border: none;
@@ -132,7 +134,7 @@ export default {
 }
 
 /* Full-width input fields */
-.detailform input[type=text], input[type=password], input[type=number] {
+#detailform input[type=text], input[type=password], input[type=number] {
   width: 100%;
   display: inline-block;
   border: none;
@@ -141,12 +143,12 @@ export default {
     margin:0px 2px;
 }
 
-.detailform input[type=text]:focus, input[type=password]:focus, input[type=number]:focus {
+#detailform input[type=text]:focus, input[type=password]:focus, input[type=number]:focus {
   background-color: #ddd;
   outline: none; 
 }
 
-.detailform h3{
+#detailform h3{
     background-color:#b3daff;
     padding: 2%;
     text-align: center; 

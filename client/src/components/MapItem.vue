@@ -48,7 +48,7 @@
 
 <script>
 import {LMap, LTileLayer, LMarker, LTooltip, LPopup, LControl, LIcon} from 'vue2-leaflet';
-import { Icon, icon } from 'leaflet';
+import { latLng, Icon, icon } from 'leaflet';
 import NeedItem from './NeedItem.vue';
 import NeedDetail from './NeedDetail.vue';
 import { eventBus } from '@/main.js'
@@ -71,6 +71,8 @@ export default {
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       zoom: 13,
       center: [55.94100, -3.20356],
+      currentZoom: 12.5,
+      currentCenter: latLng(55.94100, -3.20356),
       bounds: null,
       location:null,
       latitude:null,
@@ -88,6 +90,8 @@ export default {
         shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
         });
     },
+    computed:{
+    },
   methods: {
     zoomUpdated (zoom) {
       this.zoom = zoom;
@@ -98,7 +102,7 @@ export default {
     boundsUpdated (bounds) {
       this.bounds = bounds;
     },
-        geoFindMe(){
+    geoFindMe(){
       if(!("geolocation" in navigator)) {
         this.errorStr = 'Geolocation is not available.';
         return;
@@ -110,7 +114,9 @@ export default {
         this.latitude = this.location.coords.latitude;
         this.longitude = this.location.coords.longitude;
         this.center = [this.latitude, this.longitude];
-      }, err => {
+    
+      },
+      err => {
         this.gettingLocation = false;
         this.errorStr = err.message;
       })
