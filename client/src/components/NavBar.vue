@@ -12,7 +12,7 @@
         <h3>Project Info</h3>
       </router-link>
       <router-link :to="{ name: 'home' }">
-          <h3>Map</h3>
+          <h3>I can help</h3>
       </router-link>
       <router-link :to="{ name: 'requesthelp' }">
           <h3>Make a request</h3>

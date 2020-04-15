@@ -6,6 +6,9 @@
     <p>Postcode: {{ need.contactDetails.postCode }}</p>
     <p>Request date: {{ need.contactDetails.date}}</p>
     <p v-if="need.needStatus" class="help">Awaiting your help</p>
+    <p v-if="!need.needStatus" class="helped">Thank you for your help</p>
+    <P>Click on me for more details on how to help</P>
+
   </div>
 </template>
 
@@ -36,8 +39,12 @@ export default {
 } 
 .help{
     padding: 10px;
-    /* border:1px solid; */
     background-color: #FFEB3B;
+    border-radius: 5px;
+}
+.helped{
+    padding: 10px;
+    background-color: #4CAF50;
     border-radius: 5px;
 }
 .needitem h3{
