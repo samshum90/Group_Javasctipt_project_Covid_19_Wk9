@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h1 class="h1">These people need your help
+      <h1 class="h1">{{ countNeedsWaiting }} people need your help
         <span id="need-done" data-toggle="tooltip" title="Requires satisfied">{{ countNeedsDone }}</span>
         <span id="need-wait" title="Requires still waiting">{{ countNeedsWaiting }}</span>
       </h1>
