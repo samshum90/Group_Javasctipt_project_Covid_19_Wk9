@@ -29,7 +29,6 @@ export default {
                 title: 'Number of requests in each Catagory',
                 colors: ['#084887', '#f58a07', '#f9ab55', '#f7f5fb', '#909cc2', '#C1BB8F', '#A176BC']
             },
-            colors: ['#084887', '#f58a07', '#f9ab55', '#f7f5fb', '#909cc2', '#C1BB8F', '#A176BC']
         }
     },
     components : {

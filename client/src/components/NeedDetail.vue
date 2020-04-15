@@ -40,12 +40,8 @@
                     <input type="text" placeholder="EH12 7TQ" id="postcode" name="postcode" v-model="need.contactDetails.postCode" required/>
                 </label>
 
-                <label for="posttime">Request time:
-                    {{ need.contactDetails.time }}
-                </label>
-
-                <label for="postdate">Post request was made:
-                    {{ need.contactDetails.date }}
+                <label for="posttime, postdate">Request time:
+                    {{ need.contactDetails.date }}, {{ need.contactDetails.time }} 
                 </label>
 
             <input type="submit" value="Update" id="update"/>
@@ -100,7 +96,7 @@ export default {
     background-color: white;
     justify-content: center;
     z-index: 0;
-    top: 50px;
+    top: 40px;
 }
 
 #detailform{
@@ -109,7 +105,7 @@ export default {
   flex-wrap: wrap;
   align-content: center;
   width: 100%;
-  height: 90vh;
+  height: 100vh;
 }
 
 .savebtn:hover {
