@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>This category chart {{getCate}}</h1>
+        <h1 class="h1">Chart</h1>
         <GChart
             v-if="chartData"
             type="ColumnChart"

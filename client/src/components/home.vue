@@ -1,20 +1,30 @@
 <template>
   <div>
     <div id="button-container" class="sticky-top">
-      <button v-on:click="mapHidden = !mapHidden, listHidden = !listHidden">
+      <button v-on:click="mapHidden = false, listHidden = true, chartHidden = true">
         <font-awesome-icon icon="map-marked-alt" id="icon"/>  Map 
         </button>
-      <button v-on:click="listHidden = !listHidden, mapHidden = !mapHidden">
+      <button v-on:click="listHidden = false, mapHidden = true, chartHidden = true">
         <font-awesome-icon icon="list-ul" id="icon"/> List 
       </button>
+      <button v-on:click="listHidden = true, mapHidden = true, chartHidden = false">
+        <font-awesome-icon icon="chart-bar" id="icon"/> Chart
+      </button>
     </div>
-      <need-list v-if="!listHidden"
-      :needs="needs"></need-list>
+      <need-list 
+        v-if="!listHidden"
+        :needs="needs">
+      </need-list>
+
         <map-item
         v-if="!mapHidden"
         :needs="needs"
       ></map-item>
-      <category-chart :needs="needs"></category-chart>
+
+      <category-chart 
+      v-if="!chartHidden"
+      :needs="needs">
+      </category-chart>
   </div>
 </template>
 
@@ -31,7 +41,8 @@ export default {
     return {
       needs: [],
       mapHidden: true,
-      listHidden: false
+      listHidden: false,
+      chartHidden: true,
     }
   },
     components: {

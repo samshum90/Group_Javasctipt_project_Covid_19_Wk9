@@ -5,7 +5,7 @@ import VueGoogleCharts from 'vue-google-charts';
 import { LMap, LTileLayer, LMarker, LTooltip, LPopup, LControl, LIcon } from 'vue2-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faListUl, faMapMarkedAlt, faBars, faWindowClose, faUserCircle }from '@fortawesome/free-solid-svg-icons';
+import { faListUl, faMapMarkedAlt, faBars, faWindowClose, faUserCircle, faChartBar }from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -15,7 +15,7 @@ Vue.use(VueGoogleCharts);
 Vue.use(BootstrapVue);
 
 Vue.use(IconsPlugin);
-library.add(faListUl, faMapMarkedAlt, faBars, faWindowClose, faUserCircle);
+library.add(faListUl, faMapMarkedAlt, faBars, faWindowClose, faUserCircle, faChartBar);
  
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
