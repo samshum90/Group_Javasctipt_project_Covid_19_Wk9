@@ -1,5 +1,8 @@
 const express = require('express');
 const app = express();
+const config = require('config');
+const mongoose = require("mongoose");
+const usersRoute = require("./helpers/users.route.js");
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
@@ -7,6 +10,23 @@ const createRouter = require('./helpers/create_router.js');
 
 app.use(bodyParser.json());
 app.use(cors());
+app.use(express.json());
+//use users route for api/users
+app.use("/api/users", usersRoute);
+
+
+
+//use config module to get the privatekey, if no private key set, end the application
+if (!config.get("myprivatekey")) {
+  console.error("FATAL ERROR: myprivatekey is not defined.");
+  process.exit(1);
+}
+
+//connect to mongodb
+mongoose
+  .connect("mongodb://localhost/nodejsauth", { useNewUrlParser: true })
+  .then(() => console.log("Connected to MongoDB..."))
+  .catch(err => console.error("Could not connect to MongoDB..."));
 
 
 // const NeedsRouter = createRouter(user);
@@ -24,3 +44,4 @@ MongoClient.connect('mongodb://localhost:27017')
 app.listen(3000, function () {
   console.log(`App running on port ${ this.address().port }`);
 });
+
