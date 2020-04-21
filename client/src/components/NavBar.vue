@@ -23,6 +23,9 @@
       <router-link :to="{ name: 'about' }">
           <h3>About</h3>
       </router-link>
+      <router-link :to="{ name: 'signupform' }">
+          <h3>Signup Form</h3>
+      </router-link>
     </b-sidebar>
   </div>
 </template>

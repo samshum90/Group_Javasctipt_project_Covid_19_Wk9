@@ -5,6 +5,7 @@ import About from './components/about';
 import NeedAdd from './components/NeedAdd';
 import Info from './components/Info';
 import ProjectInfo from './components/ProjectInfo';
+import SignupForm from './components/SignupForm';
 
 Vue.use(Router);
 
@@ -34,6 +35,11 @@ export default new Router({
       path:'/about',
       name:'about',
       component: About
+    },
+    {
+      path:'/signupForm',
+      name:'signupform',
+      component: SignupForm
     },
   ]
 })
