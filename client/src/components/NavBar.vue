@@ -8,28 +8,34 @@
         <font-awesome-icon icon="window-close" id="clbut"/>
       </b-button>
       <h1>Covid19</h1>
+      <h4><SelectLocale /></h4>
       <router-link :to="{ name: 'projectinfo' }">
-        <h3>Project Info</h3>
+        <h3>{{ $t('message.navBar.projectInfo') }}</h3>
       </router-link>
       <router-link :to="{ name: 'home' }">
-          <h3>I can help</h3>
+          <h3>{{ $t('message.navBar.getNeedsList') }}</h3>
       </router-link>
       <router-link :to="{ name: 'requesthelp' }">
-          <h3>Make a request</h3>
+          <h3>{{ $t('message.navBar.postRequest') }}</h3>
       </router-link>
       <router-link :to="{ name: 'info' }">
-          <h3>Information</h3>
+          <h3>{{ $t('message.navBar.otherInfo') }}</h3>
       </router-link>
       <router-link :to="{ name: 'about' }">
-          <h3>About</h3>
+          <h3>{{ $t('message.navBar.about') }}</h3>
       </router-link>
     </b-sidebar>
   </div>
 </template>
 
 <script>
+import SelectLocale from '@/components/SelectLocale.vue'
+
 export default {
-  name: 'nav-bar'
+  name: 'nav-bar',
+  components: {
+    SelectLocale
+  }
 }
 </script>
 
@@ -90,5 +96,9 @@ export default {
   color: #818181;
   display: block;
   transition: 0.3s;
+}
+.sidenav h4{
+  text-align: left;
+  padding: 8px 8px 8px 32px;
 }
 </style>

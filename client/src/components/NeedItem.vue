@@ -1,14 +1,13 @@
 <template>
   <div v-on:click="selectANeed" class="needitem">
-    <h3>{{need.name}}'s Requests</h3>
-    <p >Content: {{ need.content }}</p>
-    <p >Category: {{ need.category }}</p>
-    <p>Postcode: {{ need.contactDetails.postCode }}</p>
-    <p>Request date: {{ need.contactDetails.date}}</p>
-    <p v-if="need.needStatus" class="help">Awaiting your help</p>
-    <p v-if="!need.needStatus" class="helped">Thank you for your help</p>
-    <P>Click on me for more details on how to help</P>
-
+    <h3>{{ $t('message.needItem.title',{name: need.name}) }}</h3>
+    <p>{{ $t('message.needItem.content') }}: {{ need.content }}</p>
+    <p>{{ $t('message.needItem.category') }}: {{ need.category }}</p>
+    <p>{{ $t('message.needItem.postCode') }}: {{ need.contactDetails.postCode }}</p>
+    <p>{{ $t('message.needItem.requestDate') }}: {{ need.contactDetails.date}}</p>
+    <p v-if="need.needStatus" class="help">{{ $t('message.needItem.statusOpen') }}</p>
+    <p v-if="!need.needStatus" class="helped">{{ $t('message.needItem.statusFinished') }}</p>
+    <P>{{ $t('message.needItem.detail') }}</P>
   </div>
 </template>
 

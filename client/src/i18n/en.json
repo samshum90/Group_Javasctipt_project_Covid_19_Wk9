@@ -1,0 +1,81 @@
+{
+    "message": {
+      "navBar": {
+        "projectInfo": "Project Info",
+        "getNeedsList": "I can help",
+        "postRequest": "Make a request",
+        "otherInfo": "Information",
+        "about": "About"
+      },
+      "projectInfo": {
+        "title": "Ask Angela for help",
+        "content": "COVID-19 has seriously affected human lives and the economy of the world causing untold physical, mental and financial hardship for many.The population of the UK and Northern Ireland is self isolating but many people without family and friends’ are vulnerable and need help from other people.<br/>Key workers and volunteers across all sectors are exhausted from the many hours they are devoting to help those vulnerable people.This App is designed to help the volunteers find those that need help in their area and to assist them in any way they can.This is the purpose of the Angela App."
+      },
+      "getNeedsList": {
+        "openJobs": "people need your help",
+        "finishedJobs": "Together we have completed {number} requests"
+      },
+      "postRequest": {
+        "title": "Post a request",
+        "tipInfo": "Please fill in this form to create a request.",
+        "name": "Name",
+        "content": "Content",
+        "contentDefault": "Mile,Oats & Painkillers...",
+        "description": "Description",
+        "descriptionDefault": "specific requirements...",
+        "category": "Category",
+        "categoryDefault": "Please choose your request category",
+        "contactNumber": "Contact Number",
+        "email": "Email",
+        "address": "Address",
+        "postCode": "Postcode",
+        "saveButton": "Save"
+      },
+      "needItem": {
+          "title": "{name}'s Request",
+          "content": "Content",
+          "category": "Category",
+          "postCode": "Postcode",
+          "requestDate": "Request date",
+          "statusOpen": "Awaiting your help",
+          "statusFinished": "Thank you for your help",
+          "detail": "Click on me for more details on how to help"
+      },
+      "needDetail":{
+          "title": "More details",
+          "name": "Name",
+          "content": "Content",
+          "description": "Description",
+          "category": "Category",
+          "number": "Contact Number",
+          "email": "Email",
+          "address": "Address",
+          "postCode": "PostCode",
+          "postTime": "Request time",
+          "updateButton": "Update",
+          "deleteButton": "Delete",
+          "takeButton": "I will fulfill the request"
+      },
+      "buttonContainer":{
+          "map": "Map",
+          "list": "List",
+          "chart": "Chart"
+      },
+      "mapItem":{
+          "title": "Map",
+          "showMyLocation": "Show my location",
+          "youAreHere": "You are here"
+      },
+      "charts":{
+          "title": "Charts",
+          "openJobs": "people need your help",
+          "finishedJobs": "Together we have completed {number} requests"
+      },
+      "otherInfo":{
+          "title": "Information"
+      },
+      "about":{
+          "title": "The Team"
+      }
+    }
+  }

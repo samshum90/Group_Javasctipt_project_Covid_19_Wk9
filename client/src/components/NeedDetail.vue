@@ -1,21 +1,17 @@
 <template>
   <div id="need-detail" v-if="need!=null" class="sticky-top">
         <form v-on:submit="updateNeed" id="detailform" >
-            <h3>More details</h3>
-                
-                <label for="name">Name:
+            <h3>{{ $t('message.needDetail.title') }}</h3>          
+                <label for="name">{{ $t('message.needDetail.name') }}:
                     <input type="text" placeholder="John Doe" id="name" name="name" v-model="need.name" required/>
                 </label>
-
-                <label for="content">Content:
+                <label for="content">{{ $t('message.needDetail.content') }}:
                     <input type="text" placeholder="Milk, Oats & Painkillers... " id="content" name="content" v-model="need.content"/>
                 </label>
-
-                <label for="needDescription">Description:
+                <label for="needDescription">{{ $t('message.needDetail.description') }}:
                     <input type="text" placeholder="specific requirements..." id="needDescription" name="needDescription" v-model="need.needDescription" />
                 </label>
-
-                <label for="category">Category:
+                <label for="category">{{ $t('message.needDetail.category') }}:
                     <select name="category" v-model="need.category" id="category" class = "category">
                         <option value="" disabled selected>Please choose your request category</option>
                         <option v-for="category in this.$GCategorys" :value="category" v-bind:key="category">
@@ -23,30 +19,24 @@
                         </option>
                     </select>
                 </label>
-
-                <label for="contactnumber">Contact Number:
+                <label for="contactnumber">{{ $t('message.needDetail.number') }}:
                     <input type="text" placeholder="07711667566" id="contactnumber" name="contactnumber" v-model="need.contactDetails.contactNumber" required/>
                 </label>
-
-                <label for="email">Email:
+                <label for="email">{{ $t('message.needDetail.email') }}:
                     <input type="text" placeholder="johndoe@hotmail.com" id="email" name="email" v-model="need.contactDetails.email" required/>
                 </label>
-
-                <label for="address">Address:
+                <label for="address">{{ $t('message.needDetail.address') }}:
                     <input type="text" placeholder="10 Featherhall Avenue, Corstorphine" id="address" name="address" v-model="need.contactDetails.address" required/>
                 </label>
-
-                <label for="postcode">Postcode:
+                <label for="postcode">{{ $t('message.needDetail.postCode') }}:
                     <input type="text" placeholder="EH12 7TQ" id="postcode" name="postcode" v-model="need.contactDetails.postCode" required/>
                 </label>
-
-                <label for="posttime, postdate">Request time:
+                <label for="posttime, postdate">{{ $t('message.needDetail.postTime') }}:
                     {{ need.contactDetails.date }}, {{ need.contactDetails.time }} 
                 </label>
-
-            <input type="submit" value="Update" id="update"/>
-            <input type="submit" value="Delete" v-on:click="deleteNeed"/>
-            <input type="submit" value="I will fulill the request" v-if="need.needStatus" v-on:click="handleUpdate"/>
+            <input type="submit" :value="$t('message.needDetail.updateButton')" id="update"/>    
+            <input type="submit" :value="$t('message.needDetail.deleteButton')" v-on:click="deleteNeed"/>
+            <input type="submit" :value="$t('message.needDetail.takeButton')" v-if="need.needStatus" v-on:click="handleUpdate"/>
             
           </form>
       </div>

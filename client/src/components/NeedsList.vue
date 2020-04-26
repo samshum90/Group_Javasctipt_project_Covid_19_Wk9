@@ -1,8 +1,9 @@
 <template>
   <div>
-      <h1 class="h1">{{ countNeedsWaiting }} people need your help</h1>
+      <h1 class="h1">{{ countNeedsWaiting }} {{ $t('message.getNeedsList.openJobs') }}</h1>
       <h2 class="need-done" data-toggle="tooltip" title="requests completed">
-        Together we have completed {{ countNeedsDone }} requests</h2>
+        {{ $t('message.getNeedsList.finishedJobs',{number: countNeedsDone}) }}
+      </h2>
     <span class="main-container">
     <span class="list-container">
       <need-item v-for="(need, index) in needs" :need="need" :key="index">        

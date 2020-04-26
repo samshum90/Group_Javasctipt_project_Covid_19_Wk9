@@ -3,47 +3,38 @@
   <div class="form-container">
     <form v-on:submit.prevent="HandleSubmitNeed" class="form">
 
-       <h1 class="h1">Post a request</h1>
-        <p>Please fill in this form to create a request.</p>
-        
-          <label for="name">Name:
+       <h1 class="h1">{{ $t('message.postRequest.title') }}</h1>
+        <p>{{ $t('message.postRequest.tipInfo') }}</p>
+          <label for="name">{{ $t('message.postRequest.name') }}:
             <input type="text" placeholder="John Doe" id="name" name="name" v-model="name" required/>
           </label>
-
-          <label for="content">Content:
+          <label for="content">{{ $t('message.postRequest.content') }}:
             <input type="text" placeholder="Milk, Oats & Painkillers... " id="content" name="content" v-model="content"/>
           </label>
-
-          <label for="needDescription">Description:
+          <label for="needDescription">{{ $t('message.postRequest.description') }}:
             <input type="text" placeholder="specific requirements..." id="needDescription" name="needDescription" v-model="needDescription" />
           </label>
-
-          <label for="category">Category:
+          <label for="category">{{ $t('message.postRequest.category') }}:
             <select name="category" v-model="category" id="category" class = "category">
-              <option value="" disabled selected>Please choose your request category</option>
+              <option value="" disabled selected>{{ $t('message.postRequest.categoryDefault') }}</option>
               <option v-for="category in this.$GCategorys" :value="category" v-bind:key="category">
                 {{ category }}
               </option>
             </select>
           </label>
-
-          <label for="contactnumber">Contact Number:
+          <label for="contactnumber">{{ $t('message.postRequest.contactNumber') }}:
             <input type="number" placeholder="07711667566" id="contactnumber" name="contactnumber" v-model="contactDetails.contactNumber" required/>
           </label>
-
-          <label for="email">Email:
+          <label for="email">{{ $t('message.postRequest.email') }}:
             <input type="text" placeholder="johndoe@hotmail.com" id="email" name="email" v-model="contactDetails.email" required/>
           </label>
-
-          <label for="address">Address:
+          <label for="address">{{ $t('message.postRequest.address') }}:
             <input type="text" placeholder="10 Featherhall Avenue, Corstorphine" id="address" name="address" v-model="contactDetails.address" required/>
           </label>
-
-          <label for="postcode">Postcode:
+          <label for="postcode">{{ $t('message.postRequest.postCode') }}:
             <input type="text" placeholder="EH12 7TQ" id="postcode" name="postcode" v-model="contactDetails.postCode" required/>
           </label>
-
-           <input type="submit" name="submit" value="Save" />
+           <input type="submit" name="submit" :value="$t('message.postRequest.saveButton')" />
     </form>
   </div>
 </template>

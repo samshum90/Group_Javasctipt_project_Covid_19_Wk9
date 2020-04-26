@@ -1,7 +1,7 @@
 <template>
 
 <div class="info-container"><br>
-  <h1 class="h1">Information</h1><br><br>
+  <h1 class="h1">{{ $t('message.otherInfo.title') }}</h1><br><br>
     <div id="n1" class="column">
      <h2>GOV.UK</h2>
       <p>gov.uk is a United Kingdom public sector information website, created by the Government Digital Service to provide a single point of access to HM Government services.Stay at homeOnly go outside for food, health reasons or work (but only if you cannot work from home)If you go out, stay 2 metres (6ft) away from other people at all times Wash your hands as soon as you get home Do not meet others, even friends or family. You can spread the virus even if you don’t have symptoms.</p>

@@ -1,6 +1,6 @@
 <template>
     <div class="map-container">
-      <h1 class="h1">Map</h1>
+      <h1 class="h1">{{ $t('message.mapItem.title') }}</h1>
       <l-map class="map" id="map"
         :zoom="zoom"
         :center="center"
@@ -13,7 +13,7 @@
         <l-tile-layer :url="url"></l-tile-layer>
           <l-control id="findme" class="sticky-top">
             <button v-on:click="geoFindMe">
-              Show my location
+              {{ $t('message.mapItem.showMyLocation') }}
             </button>
           <p v-if="errorStr">{{ errorStr }}</p>
           </l-control>
@@ -37,7 +37,7 @@
             >
             <div class="icon-container">
               <img src="@/assets/user-circle-solid.png"/>
-              <p>You are here</p>
+              <p>{{ $t('message.mapItem.youAreHere') }}</p>
             </div>
               
             </l-icon>

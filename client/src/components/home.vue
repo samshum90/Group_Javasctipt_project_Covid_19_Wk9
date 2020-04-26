@@ -2,13 +2,13 @@
   <div>
     <div id="button-container" class="sticky-top">
       <button v-on:click="mapHidden = false, listHidden = true, chartHidden = true">
-        <font-awesome-icon icon="map-marked-alt" id="icon"/>  Map 
+        <font-awesome-icon icon="map-marked-alt" id="icon"/> {{ $t('message.buttonContainer.map') }}
         </button>
       <button v-on:click="listHidden = false, mapHidden = true, chartHidden = true">
-        <font-awesome-icon icon="list-ul" id="icon"/> List 
+        <font-awesome-icon icon="list-ul" id="icon"/> {{ $t('message.buttonContainer.list') }}
       </button>
       <button v-on:click="listHidden = true, mapHidden = true, chartHidden = false">
-        <font-awesome-icon icon="chart-bar" id="icon"/> Chart
+        <font-awesome-icon icon="chart-bar" id="icon"/> {{ $t('message.buttonContainer.chart') }}
       </button>
     </div>
       <need-list 

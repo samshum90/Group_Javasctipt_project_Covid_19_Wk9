@@ -1,21 +1,18 @@
 <template>
 
 <div class="about-container">
-  <h1 class="h1">The Team</h1>
+  <h1 class="h1">{{ $t('message.about.title') }}</h1>
   <div class="profile-container">
-    <div class="column">
-      <img class ="jun" src="@/assets/jun_profile.jpeg" alt="jun profile">
-      <h2>Jun</h2>
-      <p><a href="https://github.com/junwu1976">Visit Jun on github</a></p>
-    </div>
-    
     <div class="column">
       <img class ="andrew" src="@/assets/andrew_profile.jpeg" alt="andrew profile">
       <h2>Andrew</h2>
       <p><a href="https://github.com/atrp87">Visit Andrew on github</a></p>
     </div>
-
-    
+    <div class="column">
+      <img class ="jun" src="@/assets/jun_profile.jpeg" alt="jun profile">
+      <h2>Jun</h2>
+      <p><a href="https://github.com/junwu1976">Visit Jun on github</a></p>
+    </div>
     <div class="column">
       <img class ="sam" src="@/assets/sam_profile.jpeg" alt="sam profile">
       <h2>Sam</h2>

@@ -1,0 +1,81 @@
+{
+    "message": {
+      "navBar":{
+        "projectInfo": "项目信息",
+        "getNeedsList": "我可以帮忙",
+        "postRequest": "发布需求",
+        "otherInfo": "其他信息",
+        "about": "关于"
+      },
+      "projectInfo": {
+        "title": "请求天使帮助",
+        "content": "COVID-19已严重影响了人类的生活和世界经济，给许多人造成了难以言喻的身体，精神和经济困难。英国的人口处于自我隔离状态，但是许多没有家人和朋友的人很脆弱，需要别人的帮助。各行各业的主要工人和志愿者在为帮助弱势群体付出的大量时间中已经精疲力尽。这个程序的目的是帮助志愿者找到他们所在地区需要帮助的人，并尽一切可能帮助他们。这是Angela应用程序的目的。"
+      },
+      "postRequest": {
+        "title": "发布一条需求",
+        "tipInfo": "请填写表格创立需求.",
+        "name": "姓名",
+        "content": "内容",
+        "contentDefault": "牛奶，燕麦 和 止痛药。。。",
+        "description": "描述",
+        "descriptionDefault": "特殊要求...",
+        "category": "种类",
+        "categoryDefault": "请选择您的需求种类",
+        "contactNumber": "联系电话",
+        "email": "电邮",
+        "address": "地址",
+        "postCode": "邮编",
+        "saveButton": "保存"
+      },
+      "getNeedsList": {
+        "openJobs": "人需要您的帮助",
+        "finishedJobs": "我们总共满足了 {number} 个需求"
+      },
+      "needItem": {
+        "title": "{name} 的需求",
+        "content": "内容",
+        "category": "种类",
+        "postCode": "邮编",
+        "requestDate": "发布日期",
+        "statusOpen": "等待您的帮助",
+        "statusFinished": "谢谢您的帮助",
+        "detail": "点击这里获得更多细节"
+      },
+      "needDetail":{
+        "title": "更多细节",
+        "name": "名字",
+        "content": "内容",
+        "description": "描述",
+        "category": "种类",
+        "number": "联系电话",
+        "email": "电邮",
+        "address": "地址",
+        "postCode": "邮编",
+        "postTime": "发布时间",
+        "updateButton": "更新",
+        "deleteButton": "删除",
+        "takeButton": "我可以满足要求"
+      },
+      "buttonContainer":{
+        "map": "地图",
+        "list": "列表",
+        "chart": "图表"
+      },
+      "mapItem":{
+        "title": "地图",
+        "showMyLocation": "显示我的地点",
+        "youAreHere": "您在这里"
+      },
+      "charts":{
+        "title": "图片",
+        "openJobs": " 人需要您的帮助",
+        "finishedJobs": "我们总共满足了 {number} 个需求"
+      },
+      "otherInfo":{
+        "title": "信息"
+      },
+      "about":{
+        "title": "团队"
+      }
+    }
+  }

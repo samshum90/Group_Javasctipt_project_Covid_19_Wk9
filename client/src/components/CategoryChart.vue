@@ -1,10 +1,12 @@
 <template>
     <div>
-        <h1 class="h1">Charts</h1>
-              <h2 class="need-wait" data-toggle="tooltip" title="Number of people that need your help" >
-        {{ countNeedsWaiting }} people need your help</h2>
-              <h2 class="need-done" data-toggle="tooltip" title="requests completed">
-        Together we have completed {{ countNeedsDone }} requests</h2>
+        <h1 class="h1">{{ $t('message.charts.title') }}</h1>
+
+        <h2 class="need-wait" data-toggle="tooltip" title="Number of people that need your help" >
+            {{ countNeedsWaiting }} {{ $t('message.charts.openJobs') }}</h2>
+        <h2 class="need-done" data-toggle="tooltip" title="requests completed">
+            {{ $t('message.charts.finishedJobs',{number: countNeedsDone}) }}
+        </h2>
 
         <GChart
             v-if="chartData"
