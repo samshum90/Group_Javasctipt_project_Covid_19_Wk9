@@ -1,0 +1,87 @@
+{
+"message": {
+  "navBar": {
+    "projectInfo": "Información sobre el proyecto",
+    "getNeedsList": "Puedo ayudar",
+    "postRequest": "Solicita ayuda",
+    "otherInfo": "Información",
+    "about": "Quiénes somos"
+  },
+  "projectInfo": {
+    "title": "Pide ayuda á Angela",
+    "content": "El COVID-19 ha afectado seriamente la vida de las personas y las economías de todo el mundo, causando una angustia física, mental y financiera indescribible para muchos. <br>
+La población española està en confinamiento, y muchas personas sin familiares y amigos son vulnerables y necesitan la ayuda de quienes pueden ayudarlas. <br>
+Los trabajadores clave y voluntarios en todos los sectores están exhaustos por las muchas horas que dedican a ayudar a las personas vulnerables. <br>
+Esta aplicación está diseñada para ayudar a los voluntarios a encontrar a todos aquellos que lo necesiten en su propio territorio en tiempo real y ofrecer su ayuda para cualquier necesidad. <br>
+Este es el objetivo de la aplicación Angela."
+  },
+  "getNeedsList": {
+    "openJobs": "Personas que necesitan tu ayuda",
+    "finishedJobs": "Juntos hemos satisfecho {number} solicitudes"
+  },
+  "postRequest": {
+    "title": "Haz una solicitud",
+    "tipInfo": "Completa el formulario para realizar una solicitud",
+    "name": "Nombre",
+    "content": "Contenido",
+    "contentDefault": "Leche, pan, analgésicos...",
+    "description": "Descripción",
+    "descriptionDefault": "Solicitudes específicas...",
+    "category": "Categoría",
+    "categoryDefault": "Elije la categoría de tu solicitud",
+    "contactNumber": "Número de teléfono",
+    "email": "Correo electrónico",
+    "address": "Dirección",
+    "postCode": "Código postal",
+    "saveButton": "Guarda"
+  },
+  "needItem": {
+      "title": "Solicitud de {name}",
+      "content": "Contenido",
+      "category": "Categoría",
+      "postCode": "Código postal",
+      "requestDate": "Fecha de la solicitud",
+      "statusOpen": "Espero tu ayuda",
+      "statusFinished": "Gracias por tu ayuda",
+      "detail": "Haz clic aquí para saber cómo ayudar"
+  },
+  "needDetail":{
+      "title": "Detalles",
+      "name": "Nombre",
+      "content": "Contenido",
+      "description": "Descripción",
+      "category": "Categoría",
+      "number": "Número de teléfono",
+      "email": "Correo electrónico",
+      "address": "Dirección",
+      "postCode": "Código postal",
+      "postTime": "Hora de solicitud",
+      "updateButton": "Actualiza",
+      "deleteButton": "Elimina",
+      "takeButton": "Acepto la solicitud"
+  },
+  "buttonContainer": {
+      "mapa": "Mapa",
+      "list": "Lista",
+      "chart": "Gràfico"
+      },
+   "mapItem": {
+      "title": "Mapa",
+      "showMyLocation": "Muestra mi ubicación",
+      "youAreHere": "Tu estás aquí"
+      },
+   "charts": {
+      "title": "Graphico",
+      "openJobs": "Personas que necesitan tu ayuda",
+      "finishedJobs": "Juntos hemos satisfecho {number} solicitudes"
+      },
+   "otherInfo": {
+      "title": "Información"
+      },
+   "about": {
+      "title": "El equipo"
+      }
+    }
+  }
+
+"Number of requests in each Category": "Número de solicitudes en cada categoría."
