@@ -38,7 +38,9 @@ Vue.config.productionTip = false
 // i18n 
 const messages = {
   English: require('@/i18n/en.json'),
-  简体中文: require('@/i18n/cn.json')
+  简体中文: require('@/i18n/cn.json'),
+  Italiano: require('@/i18n/it.json'),
+  Español: require('@/i18n/es.json')
 };
 
 const i18n = new VueI18n({

@@ -12,7 +12,7 @@
 export default {
   name: 'SelectLocale',
   data() {
-    return { langs: ['English', '简体中文'] }
+    return { langs: ['English', '简体中文','Italiano','Español'] }
   }
 }
 </script>

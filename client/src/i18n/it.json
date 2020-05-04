@@ -9,11 +9,7 @@
       },
       "projectInfo": {
         "title": "Chiedi l'aiuto di Angela",
-        "content": "Il COVID-19 ha gravemente colpito la vita delle persone e l'economia di tutto il mondo, causando indicibili disagi fisici, mentali e finanziari per molti. <br>
-    La popolazione italiana è in auto-isolamento, ma molte persone senza famiglia e amici sono vulnerabili e hanno bisogno dell'aiuto di chi può dare loro una mano. <br>
-    I lavoratori chiave e i volontari in tutti i settori sono sfiniti dalle molte ore che dedicano ad aiutare quelle stesse persone vulnerabili. <br>
-    Questa App è progettata per aiutare i volontari a trovare tutti coloro che si trovano in difficoltà nella loro zona in tempo reale e in ogni modo possibile.<br>
-    Questo è lo scopo dell'App Angela."
+        "content": "Il COVID-19 ha gravemente colpito la vita delle persone e l'economia di tutto il mondo, causando indicibili disagi fisici, mentali e finanziari per molti.La popolazione italiana è in auto-isolamento, ma molte persone senza famiglia e amici sono vulnerabili e hanno bisogno dell'aiuto di chi può dare loro una mano.I lavoratori chiave e i volontari in tutti i settori sono sfiniti dalle molte ore che dedicano ad aiutare quelle stesse persone vulnerabili.Questa App è progettata per aiutare i volontari a trovare tutti coloro che si trovano in difficoltà nella loro zona in tempo reale e in ogni modo possibile.Questo è lo scopo dell'App Angela."
       },
       "getNeedsList": {
         "openJobs": "Persone che hanno bisogno del tuo aiuto",
@@ -36,7 +32,7 @@
         "saveButton": "Salva"
       },
       "needItem": {
-          "title": "Richiesta di "{name}",
+          "title": "Richiesta di {name}",
           "content": "Contenuto",
           "category": "Categoria",
           "postCode": "CAP",
@@ -67,7 +63,7 @@
       },
       "mapItem":{
           "title": "Mappa",
-          "showMyLocation": "Mostra la mia posizione"",
+          "showMyLocation": "Mostra la mia posizione",
           "youAreHere": "Tu sei qui"
       },
       "charts":{
@@ -84,6 +80,3 @@
     }
   }
 
-
-
-  "Number of requests in each Category": "Numero di richieste in ogni categoria"
