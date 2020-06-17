@@ -1,9 +1,17 @@
 # Help-Fight COVID-19
 
-This is a project to let people help each other and fight to COVID-19
+[Live App](https://codeclan-shop.web.app/)
+
+This project hopes to enable people to help each other with the fight against COVID-19
+
+![alt text](https://github.com/samshum90/Group_Javasctipt_project_Covid_19_Wk9/raw/master/COVID_App.gif "COVID App Gif")
 #### Background Information
 
-As the COVID-19 has seriously damaged human’s lives and the economy. Lots of families are losing their lovers, lots of isolating people need help but lots of key workers feel tired when they fight with the virus for long hours. To reduce the burden of our key workers, lots of volunteers stand out and say they can help. But how do the volunteers know who needs help, where are them and what kind of needs are? Here we can build an app to do this job.
+COVID-19 has seriously affected human lives and the economy of the World causing untold physical, mental and financial hardship for many. The population of the UK and Northern Ireland is self isolating but many people without family and friends’ are vulnerable and need help from other people. Key workers and volunteers across all sectors are exhausted from the many hours they are devoting to help those vulnerable people.
+
+This App is designed to help the volunteers find those that need help in their area and to assist them in any way they can. 
+
+This is the purpose of Angela.
 
 #### MVP
 
@@ -29,3 +37,24 @@ Needs collection include: NeedID, contact person name, contact number, contact e
 - Chatbox for the user to communicate
 - Be able to give direction to nearby facilities
 - App will be able to add, edit, delete a volunteer
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+Runs the app in the development mode.
+
+Open http://localhost:8080 to view it in the browser.
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
