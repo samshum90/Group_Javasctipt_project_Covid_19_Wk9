@@ -1,6 +1,6 @@
 # Help-Fight COVID-19
 
-[Live App](https://codeclan-shop.web.app/)
+[Live App](https://boring-wozniak-c62dd8.netlify.app/#/)
 
 This project hopes to enable people to help each other with the fight against COVID-19
 
